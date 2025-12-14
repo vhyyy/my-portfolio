@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Cá Nhân</title>
+    <title>Blog Cá Nhân - V.Huy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,13 +11,13 @@
 
     <header>
         <div class="container">
-            <a href="#" class="logo">Portfolio.</a>
+            <a href="#" class="logo">Tiêu Viết Huy Blog</a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#home">Trang chủ</a></li>
-                    <li><a href="#about">Về tôi</a></li>
-                    <li><a href="#skills">Kỹ năng</a></li>
-                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#skills">Kinh nghiệm</a></li>
+                    <li><a href="#blog">Bài viết</a></li>
                     <li><a href="#contact">Liên hệ</a></li>
                 </ul>
                 <div class="hamburger">
@@ -30,18 +30,21 @@
     <section id="home" class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <h3>Xin chào, tôi là</h3>
-                <h1>Tiêu Viết Huy</h1>
-                <p>Tôi là một <span>Web Developer</span> đam mê thiết kế giao diện đẹp và trải nghiệm người dùng tối ưu.</p>
+                <h3>Chào mừng đến với Blog của</h3>
+                <h1>V. Huy</h1>
+                <p>Sinh viên CNTT đam mê khám phá <span>Lập trình mạng</span>, <span>Java</span> và <span>JavaScript</span>. Đây là nơi tôi chia sẻ kiến thức và hành trình học tập của mình.</p>
+                
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/vhuy.user" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/vhyyy" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:huyh2k4@gmail.com" title="Gửi Email"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:0377133406" title="Gọi điện"><i class="fas fa-phone"></i></a>
                 </div>
-                <a href="#contact" class="btn">Liên hệ ngay</a>
+
+                <a href="#blog" class="btn">Đọc bài viết mới nhất</a>
             </div>
             <div class="hero-img">
-                <img src="images/avatar.jpg" alt="Avatar">
+                <img src="images/avatar.jpg" alt="Avatar" onerror="this.src='https://via.placeholder.com/400'">
             </div>
         </div>
     </section>
@@ -54,9 +57,13 @@
                     <img src="https://via.placeholder.com/300" alt="About Me">
                 </div>
                 <div class="about-text">
-                    <h3>Lập trình viên & Thiết kế Web</h3>
-                    <p>Tôi có kinh nghiệm làm việc với các công nghệ web hiện đại. Tôi luôn tìm tòi học hỏi những cái mới để nâng cao kỹ năng của bản thân và mang lại sản phẩm tốt nhất cho khách hàng.</p>
-                    <a href="#" class="btn-outline">Tải CV</a>
+                    <h3>Sinh viên CNTT & Web Developer</h3>
+                    <p>
+                        Xin chào, tôi là sinh viên chuyên ngành Công Nghệ Thông Tin. Tôi đang tập trung phát triển kỹ năng chuyên sâu về <strong>Back-end (Java)</strong> và <strong>Front-end (JavaScript)</strong>.
+                        <br><br>
+                        Bên cạnh đó, tôi cũng dành thời gian nghiên cứu về <strong>Lập trình mạng</strong> để hiểu rõ cách thức vận hành của Internet. Blog này là đồ án môn học và là nơi lưu trữ kiến thức của tôi.
+                    </p>
+                    <a href="#contact" class="btn-outline">Liên hệ hợp tác</a>
                 </div>
             </div>
         </div>
@@ -64,46 +71,203 @@
 
     <section id="skills" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Kỹ Năng</h2>
-            <div class="skills-grid">
-                <div class="skill-card"><i class="fab fa-html5"></i><h3>HTML5</h3></div>
-                <div class="skill-card"><i class="fab fa-css3-alt"></i><h3>CSS3</h3></div>
-                <div class="skill-card"><i class="fab fa-js"></i><h3>JavaScript</h3></div>
-                <div class="skill-card"><i class="fab fa-react"></i><h3>ReactJS</h3></div>
-                <div class="skill-card"><i class="fab fa-node"></i><h3>NodeJS</h3></div>
-                <div class="skill-card"><i class="fas fa-database"></i><h3>SQL</h3></div>
+            <h2 class="section-title">Kinh Nghiệm & Kỹ Năng</h2>
+            <div class="skills-container">
+                
+                <div class="skill-box">
+                    <div class="skill-title">
+                        <div class="img"><i class="fab fa-java"></i></div>
+                        <h3>Java Core & OOP</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <span class="skill-per java">
+                            <span class="tooltip">80%</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-title">
+                        <div class="img"><i class="fab fa-js"></i></div>
+                        <h3>JavaScript (ES6+)</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <span class="skill-per js">
+                            <span class="tooltip">75%</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-title">
+                        <div class="img"><i class="fas fa-network-wired"></i></div>
+                        <h3>Lập trình mạng (Socket)</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <span class="skill-per net">
+                            <span class="tooltip">70%</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-title">
+                        <div class="img"><i class="fab fa-html5"></i></div>
+                        <h3>HTML5 / CSS3</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <span class="skill-per html">
+                            <span class="tooltip">85%</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-title">
+                        <div class="img"><i class="fas fa-database"></i></div>
+                        <h3>SQL & Database</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <span class="skill-per sql">
+                            <span class="tooltip">75%</span>
+                        </span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="blog" class="section">
         <div class="container">
-            <h2 class="section-title">Dự Án Tiêu Biểu</h2>
+            <h2 class="section-title">Bài Viết Nổi Bật</h2>
             <div class="projects-grid">
+                
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
                     <div class="project-info">
-                        <h3>Website Thương Mại Điện Tử</h3>
-                        <p>Xây dựng trang bán hàng trọn gói với tính năng giỏ hàng và thanh toán.</p>
-                        <a href="#" class="btn-sm">Xem chi tiết</a>
+                        <span class="category">Java</span>
+                        <h3>1. Class và Object</h3>
+                        <p>Class là khuôn mẫu, Object là thực thể cụ thể trong OOP.</p>
+                        <div class="code-snippet">
+<pre>
+class Car { String color = "Red"; }
+Car myCar = new Car();
+</pre>
+                        </div>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
                     <div class="project-info">
-                        <h3>Landing Page Doanh Nghiệp</h3>
-                        <p>Thiết kế Landing page giới thiệu dịch vụ doanh nghiệp chuẩn SEO.</p>
-                        <a href="#" class="btn-sm">Xem chi tiết</a>
+                        <span class="category">Java</span>
+                        <h3>2. Tại sao dùng ArrayList?</h3>
+                        <p>ArrayList cho phép thay đổi kích thước mảng linh hoạt.</p>
+                        <div class="code-snippet">
+<pre>
+ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add("Java");
+</pre>
+                        </div>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Project 3">
                     <div class="project-info">
-                        <h3>Ứng Dụng Quản Lý</h3>
-                        <p>Hệ thống quản lý nhân sự nội bộ sử dụng ReactJS và Firebase.</p>
-                        <a href="#" class="btn-sm">Xem chi tiết</a>
+                        <span class="category">Java</span>
+                        <h3>3. Xử lý lỗi Try-Catch</h3>
+                        <p>Bắt lỗi để chương trình không bị dừng đột ngột.</p>
+                        <div class="code-snippet">
+<pre>
+try { int x = 10/0; } 
+catch (Exception e) { ... }
+</pre>
+                        </div>
                     </div>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="category">Java</span>
+                        <h3>4. Vòng lặp For-each</h3>
+                        <p>Duyệt mảng nhanh và gọn gàng hơn.</p>
+                        <div class="code-snippet">
+<pre>
+for (String i : cars) {
+  System.out.println(i);
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="category">JavaScript</span>
+                        <h3>5. Var, Let, Const</h3>
+                        <p>Ưu tiên dùng `const` và `let` thay cho `var`.</p>
+                        <div class="code-snippet">
+<pre>
+const PI = 3.14;
+let age = 20;
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="category">JavaScript</span>
+                        <h3>6. Arrow Function</h3>
+                        <p>Cú pháp hàm ngắn gọn của ES6.</p>
+                        <div class="code-snippet">
+<pre>
+hello = () => "Hello World!";
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="category">JavaScript</span>
+                        <h3>7. Thao tác DOM</h3>
+                        <p>Thay đổi nội dung HTML bằng JS.</p>
+                        <div class="code-snippet">
+<pre>
+document.getElementById("id")
+        .innerHTML = "Hi";
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="category">JavaScript</span>
+                        <h3>8. Template Literals</h3>
+                        <p>Nối chuỗi thông minh với dấu backtick.</p>
+                        <div class="code-snippet">
+<pre>
+console.log(`Hi ${name}`);
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="category">Network</span>
+                        <h3>9. Java Socket</h3>
+                        <p>Giao tiếp Client-Server qua mạng.</p>
+                        <div class="code-snippet">
+<pre>
+ServerSocket sv = new ServerSocket(8080);
+Socket s = sv.accept();
+</pre>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -111,17 +275,20 @@
     <section id="contact" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Liên Hệ</h2>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <p>Kết nối với tôi qua mạng xã hội hoặc form bên dưới:</p>
+            </div>
             <form class="contact-form">
                 <input type="text" placeholder="Họ và tên" required>
                 <input type="email" placeholder="Email" required>
-                <textarea rows="5" placeholder="Nội dung tin nhắn" required></textarea>
+                <textarea rows="5" placeholder="Lời nhắn..." required></textarea>
                 <button type="submit" class="btn">Gửi tin nhắn</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2023 Designed by <b>Thung0808</b> (Clone). All rights reserved.</p>
+        <p>&copy; 2025 Blog cá nhân <b>Viết Huy</b>.</p>
     </footer>
 
     <script src="script.js"></script>
