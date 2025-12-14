@@ -69,3 +69,27 @@ if (certLink) {
         }
     });
 }
+// --- CHỨC NĂNG LIGHTBOX (XEM ẢNH CHỨNG CHỈ) ---
+
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("img01");
+
+// Hàm mở Modal (được gọi từ thẻ HTML onclick)
+function openModal(element) {
+    modal.style.display = "block";
+    // Lấy src của ảnh con bên trong thẻ div được click
+    const imgElement = element.querySelector('img');
+    modalImg.src = imgElement.src;
+}
+
+// Hàm đóng Modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// Đóng modal khi click ra ngoài ảnh
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
