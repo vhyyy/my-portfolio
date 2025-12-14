@@ -275,3 +275,16 @@ footer { background: var(--secondary-color); color: var(--bg-body); text-align: 
     .hero-img { margin-top: 30px; }
     .stat-box { margin-bottom: 20px; }
 }
+/* --- SỬA LỖI DÍNH NHAU --- */
+.info-card {
+    margin-bottom: 30px; /* Tạo khoảng cách 30px dưới đáy mỗi thẻ */
+}
+
+/* (Tuỳ chọn) Đảm bảo thẻ cuối cùng không bị thừa khoảng trắng nếu cần */
+.about-left .info-card:last-child {
+    margin-bottom: 0;
+}
+/* --- SỬA LỖI CUỘN TRANG --- */
+#skills {
+    scroll-margin-top: 90px; /* Khi cuộn tới, cách đỉnh 90px để không bị Menu che */
+}
