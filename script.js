@@ -44,7 +44,7 @@ hamburger.addEventListener('click', () => {
         navLinks.style.top = '70px';
         navLinks.style.left = '0';
         navLinks.style.width = '100%';
-        navLinks.style.background = 'var(--nav-bg)'; // Tương thích Dark Mode
+        navLinks.style.background = 'var(--nav-bg)';
         navLinks.style.padding = '20px';
         navLinks.style.boxShadow = '0 5px 10px var(--shadow)';
     } else {
@@ -106,7 +106,7 @@ function typeEffect() {
     let typeSpeed = isDeleting ? 50 : 100;
 
     if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000; // Dừng lại đọc
+        typeSpeed = 2000;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
@@ -157,7 +157,7 @@ window.onclick = function(event) {
     }
 }
 
-// Click vào các hộp thống kê
+// Click vào các hộp thống kê (Dự án & Chứng chỉ)
 const projectLink = document.getElementById('project-link');
 if (projectLink) {
     projectLink.addEventListener('click', () => {
@@ -174,3 +174,73 @@ if (certLink) {
         }
     });
 }
+
+// --- 9. ADVANCED FILTER & SEARCH (BỘ LỌC BÀI VIẾT - MỚI) ---
+
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+const searchInput = document.getElementById('searchInput');
+
+// A. Xử lý khi bấm nút Lọc (Tabs)
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Xóa class active ở nút cũ, thêm vào nút mới bấm
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+
+            if (filterValue === 'all' || filterValue === cardCategory) {
+                card.style.display = 'flex';
+                // Reset animation để hiệu ứng nảy lên lại
+                card.style.animation = 'none';
+                card.offsetHeight; /* trigger reflow */
+                card.style.animation = 'fadeIn 0.5s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// B. Xử lý khi gõ vào ô Tìm kiếm
+if (searchInput) {
+    searchInput.addEventListener('keyup', (e) => {
+        const term = e.target.value.toLowerCase();
+        
+        // Khi bắt đầu tìm kiếm, reset nút filter về "Tất cả" để tránh xung đột
+        if(term.length > 0) {
+            const activeBtn = document.querySelector('.filter-btn.active');
+            if(activeBtn && activeBtn.getAttribute('data-filter') !== 'all') {
+                 activeBtn.classList.remove('active');
+                 document.querySelector('[data-filter="all"]').classList.add('active');
+            }
+        }
+
+        projectCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const desc = card.querySelector('p').textContent.toLowerCase();
+            const category = card.querySelector('.category').textContent.toLowerCase();
+
+            // Tìm trong Tiêu đề, Mô tả hoặc Tên danh mục
+            if (title.includes(term) || desc.includes(term) || category.includes(term)) {
+                card.style.display = 'flex';
+                card.style.animation = 'fadeIn 0.5s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+}
+
+// Thêm keyframe animation cho JS (để bài viết hiện ra mượt mà)
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}`;
+document.head.appendChild(styleSheet);

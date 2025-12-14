@@ -143,7 +143,7 @@
                             </li>
                             <li>
                                 <i class="fab fa-facebook"></i>
-                                <div><strong>Facebook</strong><p>facebook.com/vhuy.user</p></div>
+                                <div><strong>Facebook</strong><p>fb.com/vhuy.user</p></div>
                             </li>
                         </ul>
                     </div>
@@ -155,12 +155,100 @@
     <section id="blog" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Chia Sẻ Kiến Thức</h2>
+            
+            <div class="blog-controls">
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Tìm dữ liệu (VD: Java, Socket, Bug)...">
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">TẤT CẢ</button>
+                    <button class="filter-btn" data-filter="java">JAVA</button>
+                    <button class="filter-btn" data-filter="js">JAVASCRIPT</button>
+                    <button class="filter-btn" data-filter="python">PYTHON</button>
+                    <button class="filter-btn" data-filter="network">MẠNG MÁY TÍNH</button>
+                    <button class="filter-btn" data-filter="c">C LANGUAGE</button>
+                    <button class="filter-btn" data-filter="fun">GIẢI TRÍ</button>
+                </div>
+            </div>
+
             <div class="projects-grid">
                 
-                <div class="project-card">
+                <div class="project-card" data-category="network">
+                    <div class="project-info">
+                        <span class="category">Network</span>
+                        <h3>Mô hình OSI 7 Tầng</h3>
+                        <p>Hiểu về cách dữ liệu di chuyển từ tầng Vật lý (Physical) đến Ứng dụng (Application) một cách dễ hiểu nhất.</p>
+                        <div class="code-snippet"><pre>
+1. Physical (Dây cáp)
+...
+7. Application (HTTP, FTP)</pre></div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="network">
+                    <div class="project-info">
+                        <span class="category">Network</span>
+                        <h3>DNS: Danh bạ của Internet</h3>
+                        <p>Tại sao bạn gõ google.com chứ không phải 142.250.1.1? Cơ chế phân giải tên miền hoạt động ra sao?</p>
+                        <div class="code-snippet"><pre>
+User -> google.com 
+DNS Server -> 142.x.x.x
+Browser -> Connect IP</pre></div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="network">
+                    <div class="project-info">
+                        <span class="category">Network</span>
+                        <h3>HTTP vs HTTPS & SSL</h3>
+                        <p>Sự khác biệt về bảo mật và quy trình "bắt tay" (Handshake) để mã hóa dữ liệu truyền tải.</p>
+                        <div class="code-snippet"><pre>
+Client Hello -> Server Hello
+Certificate Exchange
+Key Generation -> Secure</pre></div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="network">
+                    <div class="project-info">
+                        <span class="category">Network</span>
+                        <h3>Socket TCP Client-Server</h3>
+                        <p>Mô hình giao tiếp tin cậy qua mạng. Nền tảng của các ứng dụng Chat.</p>
+                        <div class="code-snippet"><pre>
+ServerSocket sv = new ServerSocket(8888);
+Socket s = sv.accept(); // Chờ kết nối</pre></div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="fun">
+                    <div class="project-info">
+                        <span class="category" style="background: #e91e63;">Funny</span>
+                        <h3>"It works on my machine!"</h3>
+                        <p>Câu nói kinh điển của mọi Dev: Tại sao code chạy ngon lành trên máy tôi nhưng sang máy sếp lại lỗi?</p>
+                        <div class="code-snippet"><pre>
+if (myMachine) { return true; }
+else { return "Crash!"; }</pre></div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="fun">
+                    <div class="project-info">
+                        <span class="category" style="background: #e91e63;">Funny</span>
+                        <h3>Code lúc 3h sáng vs 9h sáng</h3>
+                        <p>Sự khác biệt giữa việc code trong trạng thái "thăng hoa" ban đêm và cơn đau đầu khi đọc lại vào sáng hôm sau.</p>
+                        <div class="code-snippet"><pre>
+// God only knows what this does
+var magic = 42; 
+// ToDo: Refactor later (Never)</pre></div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3>1. Class và Object</h3>
+                        <h3>Class và Object</h3>
                         <p>Class là khuôn mẫu, Object là thực thể cụ thể. Đây là nền tảng của OOP.</p>
                         <div class="code-snippet"><pre>
 class Car { String color = "Red"; }
@@ -168,10 +256,10 @@ Car myCar = new Car();</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3>2. ArrayList vs Array</h3>
+                        <h3>ArrayList vs Array</h3>
                         <p>ArrayList linh hoạt hơn mảng thường vì có thể thay đổi kích thước động.</p>
                         <div class="code-snippet"><pre>
 ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
@@ -179,119 +267,93 @@ list.add("Java"); // Thêm phần tử</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                 <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3>3. Kế thừa (Inheritance)</h3>
+                        <h3>Kế thừa (Inheritance)</h3>
                         <p>Dùng từ khóa `extends` để lớp con kế thừa thuộc tính của lớp cha.</p>
                         <div class="code-snippet"><pre>
-class Dog extends Animal {
-  void bark() { System.out.println("Gâu"); }
-}</pre></div>
+class Dog extends Animal { ... }</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3>4. Interface là gì?</h3>
+                        <h3>Interface là gì?</h3>
                         <p>Interface chứa các hàm trừu tượng, giúp đa kế thừa trong Java.</p>
                         <div class="code-snippet"><pre>
-interface Animal { void sound(); }
-class Pig implements Animal { ... }</pre></div>
+interface Animal { void sound(); }</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="js">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
-                        <h3>5. Let vs Const vs Var</h3>
+                        <h3>Let vs Const vs Var</h3>
                         <p>Nên dùng `const` mặc định, `let` khi cần đổi giá trị. Tránh dùng `var`.</p>
                         <div class="code-snippet"><pre>
-const PI = 3.14; 
-let age = 20;    
-// var old = 10; (Hạn chế)</pre></div>
+const PI = 3.14; let age = 20;</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="js">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
-                        <h3>6. Arrow Function</h3>
+                        <h3>Arrow Function</h3>
                         <p>Cách viết hàm ngắn gọn hơn trong ES6.</p>
                         <div class="code-snippet"><pre>
-// Cũ: function(a) { return a + 10; }
-// Mới:
 const add = a => a + 10;</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                 <div class="project-card" data-category="js">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
-                        <h3>7. Template Literals</h3>
+                        <h3>Template Literals</h3>
                         <p>Nối chuỗi siêu dễ với dấu backtick (`).</p>
                         <div class="code-snippet"><pre>
-let name = "Huy";
-console.log(`Xin chào ${name}!`);</pre></div>
+console.log(`Hi ${name}!`);</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                 <div class="project-card" data-category="js">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
-                        <h3>8. DOM Manipulation</h3>
+                        <h3>DOM Manipulation</h3>
                         <p>Thay đổi nội dung HTML bằng JS.</p>
                         <div class="code-snippet"><pre>
-document.getElementById("demo")
-        .innerHTML = "Hello JS";</pre></div>
+document.getElementById("demo").innerHTML = "Hello";</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="python">
                     <div class="project-info">
                         <span class="category">Python</span>
-                        <h3>9. List Comprehension</h3>
+                        <h3>List Comprehension</h3>
                         <p>Tạo list mới từ list cũ chỉ trong 1 dòng code.</p>
                         <div class="code-snippet"><pre>
-nums = [1, 2, 3, 4]
-squares = [x**2 for x in nums] 
-# Kết quả: [1, 4, 9, 16]</pre></div>
+squares = [x**2 for x in nums]</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="python">
                     <div class="project-info">
                         <span class="category">Python</span>
-                        <h3>10. Dictionary cơ bản</h3>
+                        <h3>Dictionary cơ bản</h3>
                         <p>Lưu trữ dữ liệu dạng Key-Value cực mạnh mẽ.</p>
                         <div class="code-snippet"><pre>
-info = {"name": "Huy", "age": 21}
-print(info["name"]) # In ra: Huy</pre></div>
+info = {"name": "Huy", "age": 21}</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="c">
                     <div class="project-info">
                         <span class="category">C Language</span>
-                        <h3>11. Con trỏ (Pointer)</h3>
+                        <h3>Con trỏ (Pointer)</h3>
                         <p>Biến lưu địa chỉ bộ nhớ của biến khác.</p>
                         <div class="code-snippet"><pre>
-int a = 10;
-int *ptr = &a; // ptr lưu địa chỉ của a
-printf("%d", *ptr); // In ra 10</pre></div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-info">
-                        <span class="category">Network</span>
-                        <h3>12. Socket TCP Client-Server</h3>
-                        <p>Mô hình giao tiếp tin cậy qua mạng.</p>
-                        <div class="code-snippet"><pre>
-// Server Side (Java Example)
-ServerSocket sv = new ServerSocket(8888);
-Socket s = sv.accept(); // Chờ kết nối</pre></div>
+int *ptr = &a;</pre></div>
                     </div>
                 </div>
 
@@ -309,13 +371,11 @@ Socket s = sv.accept(); // Chờ kết nối</pre></div>
                     <img src="images/jv1.jpg" alt="Chứng chỉ Java">
                     <p>Chứng chỉ Lập trình Java</p>
                 </div>
-
                 <div class="cert-card" onclick="openModal(this)">
                     <img src="images/net.jpg" alt="Chứng chỉ Mạng">
                     <p>Chứng chỉ Lập trình Mạng</p>
                 </div>
-                
-                </div>
+            </div>
         </div>
     </section>
 

@@ -338,3 +338,92 @@ footer { background: var(--secondary-color); color: var(--bg-body); text-align: 
     .stat-box { margin-bottom: 20px; }
     .cursor-dot, .cursor-outline { display: none; } /* Ẩn con trỏ trên mobile */
 }
+/* --- BLOG CONTROLS (SEARCH & FILTER) --- */
+.blog-controls {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Thanh tìm kiếm */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    background-color: var(--bg-card); /* Tự đổi theo dark mode */
+    border: 1px solid rgba(0, 123, 255, 0.3);
+    border-radius: 8px; /* Bo góc nhẹ giống ảnh */
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#searchInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    opacity: 0.7;
+}
+
+/* Các nút lọc (Filter Buttons) */
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 30px; /* Bo tròn kiểu viên thuốc giống ảnh */
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.filter-btn:hover {
+    background: var(--bg-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Trạng thái đang chọn (Active) */
+.filter-btn.active {
+    background: var(--primary-color); /* Nền xanh */
+    border-color: var(--primary-color);
+    color: #fff; /* Chữ trắng */
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* Phát sáng nhẹ */
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .filter-buttons {
+        gap: 10px;
+    }
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+}
