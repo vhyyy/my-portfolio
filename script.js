@@ -5,7 +5,7 @@ const navLinks = document.querySelector('.nav-links');
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     
-    // CSS động cho menu mobile
+    // Styles cho menu mobile
     if (navLinks.classList.contains('active')) {
         navLinks.style.display = 'flex';
         navLinks.style.flexDirection = 'column';
@@ -22,7 +22,7 @@ hamburger.addEventListener('click', () => {
     }
 });
 
-// Đóng menu khi click vào link
+// Đóng menu khi click link
 document.querySelectorAll('.nav-links a').forEach(item => {
     item.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
@@ -32,7 +32,7 @@ document.querySelectorAll('.nav-links a').forEach(item => {
     });
 });
 
-// Smooth Scrolling
+// Smooth Scrolling cho các link điều hướng
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -45,29 +45,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Animation cho Skill Bar khi cuộn tới
-const skillsSection = document.querySelector('#skills');
-const progressBars = document.querySelectorAll('.skill-per');
+// --- CHỨC NĂNG MỚI THEO YÊU CẦU ---
 
-function showProgress() {
-    progressBars.forEach(progressBar => {
-        // Lấy giá trị width từ class CSS (đã set trong style.css)
-        // Code này kích hoạt lại transition để tạo hiệu ứng chạy từ 0 -> width
-        const value = progressBar.style.width; 
-        progressBar.style.width = '0'; // Reset về 0
-        setTimeout(() => {
-            progressBar.style.width = value; // Chạy lên giá trị thật
-        }, 100);
+// 1. Xử lý click vào hộp "Dự Án" -> Mở GitHub tab mới
+const projectLink = document.getElementById('project-link');
+if (projectLink) {
+    projectLink.addEventListener('click', () => {
+        // Thay link GitHub của bạn vào đây
+        window.open('https://github.com/vhyyy', '_blank');
     });
 }
 
-// Lắng nghe sự kiện scroll để kích hoạt animation skill
-window.addEventListener('scroll', () => {
-    const sectionPos = skillsSection.getBoundingClientRect().top;
-    const screenPos = window.innerHeight / 1.3;
-
-    if (sectionPos < screenPos) {
-        // Có thể thêm class để chỉ chạy animation 1 lần nếu muốn
-        // Hiện tại CSS transition đã tự xử lý mượt mà
-    }
-});
+// 2. Xử lý click vào hộp "Chứng Chỉ" -> Cuộn xuống phần #certificates
+const certLink = document.getElementById('cert-link');
+if (certLink) {
+    certLink.addEventListener('click', () => {
+        const certSection = document.getElementById('certificates');
+        if (certSection) {
+            certSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start' // Cuộn để phần đầu section nằm ở đầu màn hình
+            });
+        }
+    });
+}
