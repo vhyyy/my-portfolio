@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiêu Viết Huy - Blog</title>
+    <title>Tiêu Viết Huy - Blog Cá Nhân</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <div class="scroll-progress"></div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
     <header>
         <div class="container">
@@ -35,7 +44,8 @@
             <div class="hero-text">
                 <h3>Chào mừng đến với Blog của</h3>
                 <h1>Viết Huy</h1>
-                <p>Sinh viên Công nghệ thông tin đam mê khám phá <span>Lập trình mạng</span>, <span>Java</span>, <span>Python</span> và <span>JavaScript</span>. Đây là nơi tôi chia sẻ kiến thức và hành trình học tập của mình.</p>
+                <p>Tôi là một <span class="typing-text"></span><span class="cursor">|</span></p>
+                <p class="hero-desc">Đam mê khám phá Lập trình mạng, Java, Python và JavaScript. Chuyên xây dựng các hệ thống ổn định và bảo mật.</p>
                 
                 <div class="social-icons">
                     <a href="https://www.facebook.com/vhuy.user" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -56,7 +66,7 @@
         <div class="container">
             <h2 class="section-title">Về Tôi</h2>
             <p style="text-align: center; margin-bottom: 40px; color: var(--secondary-color);">
-                Sinh viên/Kỹ sư Hệ thống & Mạng máy tính định hướng DevOps và An ninh mạng. Có kiến thức nền tảng về quản trị hệ thống, mạng máy tính, triển khai dịch vụ và bảo mật hạ tầng CNTT. Mục tiêu là xây dựng các hệ thống ổn định, hiệu suất cao và an toàn.
+                Sinh viên/Kỹ sư Hệ thống & Mạng máy tính định hướng DevOps và An ninh mạng. Có kiến thức nền tảng về quản trị hệ thống, mạng máy tính, triển khai dịch vụ và bảo mật hạ tầng CNTT.
             </p>
 
             <div class="about-stats">
@@ -79,7 +89,7 @@
 
             <div class="about-grid">
                 <div class="about-left">
-                    <div class="info-card" id="skills"> 
+                    <div class="info-card" id="skills">
                         <h3 class="card-title"><i class="fas fa-bolt"></i> Chuyên Môn</h3>
                         <div class="skills-list">
                             <div class="skill-item">
@@ -87,11 +97,11 @@
                                 <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-info"><span>C</span><span>90%</span></div>
+                                <div class="skill-info"><span>C Language</span><span>90%</span></div>
                                 <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-info"><span>Java</span><span>80%</span></div>
+                                <div class="skill-info"><span>Java Core</span><span>80%</span></div>
                                 <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
                             </div>
                             <div class="skill-item">
@@ -312,7 +322,6 @@ Socket s = sv.accept(); // Chờ kết nối</pre></div>
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
-        <div id="caption"></div>
     </div>
 
     <section id="contact" class="section bg-light">
@@ -330,6 +339,10 @@ Socket s = sv.accept(); // Chờ kết nối</pre></div>
     <footer>
         <p>&copy; 2025 Blog cá nhân <b>Viết Huy</b>.</p>
     </footer>
+
+    <button id="backToTop" title="Lên đầu trang">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
