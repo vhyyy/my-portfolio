@@ -9,12 +9,8 @@
 </head>
 <body>
 
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-
+    <div id="preloader"><div class="loader"></div></div>
     <div class="scroll-progress"></div>
-
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
@@ -23,18 +19,17 @@
             <a href="#" class="logo">Tiêu Viết Huy</a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#home">Trang chủ</a></li>
-                    <li><a href="#about">Giới thiệu</a></li>
-                    <li><a href="#skills">Kinh nghiệm</a></li>
-                    <li><a href="#blog">Bài viết</a></li>
-                    <li><a href="#contact">Liên hệ</a></li>
-                    <li id="theme-toggle" class="theme-btn">
-                        <i class="fas fa-moon"></i>
-                    </li>
+                    <li><a href="#home" data-lang="nav_home">Trang chủ</a></li>
+                    <li><a href="#about" data-lang="nav_about">Giới thiệu</a></li>
+                    <li><a href="#skills" data-lang="nav_exp">Kinh nghiệm</a></li>
+                    <li><a href="#blog" data-lang="nav_blog">Bài viết</a></li>
+                    <li><a href="#contact" data-lang="nav_contact">Liên hệ</a></li>
+                    
+                    <li id="lang-toggle" class="lang-btn">VIE</li>
+
+                    <li id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></li>
                 </ul>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </nav>
         </div>
     </header>
@@ -42,19 +37,19 @@
     <section id="home" class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <h3>Chào mừng đến với Blog của</h3>
+                <h3 data-lang="hero_welcome">Chào mừng đến với Blog của</h3>
                 <h1>Viết Huy</h1>
-                <p>Tôi là một <span class="typing-text"></span><span class="cursor">|</span></p>
-                <p class="hero-desc">Đam mê khám phá Lập trình mạng, Java, Python và JavaScript. Chuyên xây dựng các hệ thống ổn định và bảo mật.</p>
+                <p><span data-lang="hero_iam">Tôi là một</span> <span class="typing-text"></span><span class="cursor">|</span></p>
+                <p class="hero-desc" data-lang="hero_desc">Đam mê khám phá Lập trình mạng, Java, Python và JavaScript. Chuyên xây dựng các hệ thống ổn định và bảo mật.</p>
                 
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/vhuy.user" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://github.com/vhyyy" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="mailto:huyh2k4@gmail.com" title="Gửi Email"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:0377133406" title="Gọi điện"><i class="fas fa-phone"></i></a>
+                    <a href="https://www.facebook.com/vhuy.user" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/vhyyy" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:huyh2k4@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:0377133406"><i class="fas fa-phone"></i></a>
                 </div>
 
-                <a href="#blog" class="btn">Đọc bài viết mới nhất</a>
+                <a href="#blog" class="btn" data-lang="hero_btn">Đọc bài viết mới nhất</a>
             </div>
             <div class="hero-img">
                 <img src="images/avatar.jpg" alt="Avatar" onerror="this.src='https://via.placeholder.com/400'">
@@ -64,25 +59,25 @@
 
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">Về Tôi</h2>
-            <p style="text-align: center; margin-bottom: 40px; color: var(--secondary-color);">
+            <h2 class="section-title" data-lang="sec_about">Về Tôi</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--secondary-color);" data-lang="about_desc">
                 Sinh viên/Kỹ sư Hệ thống & Mạng máy tính định hướng DevOps và An ninh mạng. Có kiến thức nền tảng về quản trị hệ thống, mạng máy tính, triển khai dịch vụ và bảo mật hạ tầng CNTT.
             </p>
 
             <div class="about-stats">
                 <div class="stat-box" id="project-link">
                     <h3>10+</h3>
-                    <p>Dự Án</p>
-                    <span>Hoàn Thành</span>
+                    <p data-lang="stat_project">Dự Án</p>
+                    <span data-lang="stat_completed">Hoàn Thành</span>
                 </div>
                 <div class="stat-box" id="cert-link">
                     <h3>6+</h3>
-                    <p>Chứng Chỉ</p>
-                    <span>Chuyên Nghiệp</span>
+                    <p data-lang="stat_cert">Chứng Chỉ</p>
+                    <span data-lang="stat_pro">Chuyên Nghiệp</span>
                 </div>
                 <div class="stat-box">
                     <i class="fas fa-graduation-cap" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
-                    <p>Đại Học</p>
+                    <p data-lang="stat_uni">Đại Học</p>
                     <span>Hutech University</span>
                 </div>
             </div>
@@ -90,7 +85,7 @@
             <div class="about-grid">
                 <div class="about-left">
                     <div class="info-card" id="skills">
-                        <h3 class="card-title"><i class="fas fa-bolt"></i> Chuyên Môn</h3>
+                        <h3 class="card-title"><i class="fas fa-bolt"></i> <span data-lang="title_skills">Chuyên Môn</span></h3>
                         <div class="skills-list">
                             <div class="skill-item">
                                 <div class="skill-info"><span>Python</span><span>95%</span></div>
@@ -116,35 +111,23 @@
                     </div>
 
                     <div class="info-card">
-                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Học Vấn</h3>
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> <span data-lang="title_edu">Học Vấn</span></h3>
                         <div class="education-item">
-                            <span class="edu-status">Hiện tại</span>
+                            <span class="edu-status" data-lang="edu_current">Hiện tại</span>
                             <h4>Hutech University</h4>
-                            <p>Ngành Công nghệ phần mềm</p>
+                            <p data-lang="edu_major">Ngành Công nghệ phần mềm</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="about-right">
                     <div class="info-card">
-                        <h3 class="card-title"><i class="fas fa-address-card"></i> Liên Hệ</h3>
+                        <h3 class="card-title"><i class="fas fa-address-card"></i> <span data-lang="title_contact">Liên Hệ</span></h3>
                         <ul class="contact-list">
-                            <li>
-                                <i class="fas fa-envelope"></i>
-                                <div><strong>Email</strong><p>huyh2k4@gmail.com</p></div>
-                            </li>
-                            <li>
-                                <i class="fas fa-phone"></i>
-                                <div><strong>Phone</strong><p>0377133406</p></div>
-                            </li>
-                            <li>
-                                <i class="fab fa-github"></i>
-                                <div><strong>GitHub</strong><p>github.com/vhyyy</p></div>
-                            </li>
-                            <li>
-                                <i class="fab fa-facebook"></i>
-                                <div><strong>Facebook</strong><p>fb.com/vhuy.user</p></div>
-                            </li>
+                            <li><i class="fas fa-envelope"></i><div><strong>Email</strong><p>huyh2k4@gmail.com</p></div></li>
+                            <li><i class="fas fa-phone"></i><div><strong>Phone</strong><p>0377133406</p></div></li>
+                            <li><i class="fab fa-github"></i><div><strong>GitHub</strong><p>github.com/vhyyy</p></div></li>
+                            <li><i class="fab fa-facebook"></i><div><strong>Facebook</strong><p>fb.com/vhuy.user</p></div></li>
                         </ul>
                     </div>
                 </div>
@@ -154,7 +137,7 @@
 
     <section id="blog" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Chia Sẻ Kiến Thức</h2>
+            <h2 class="section-title" data-lang="sec_blog">Chia Sẻ Kiến Thức</h2>
             
             <div class="blog-controls">
                 <div class="search-wrapper">
@@ -163,13 +146,13 @@
                 </div>
 
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">TẤT CẢ</button>
+                    <button class="filter-btn active" data-filter="all" data-lang="filter_all">TẤT CẢ</button>
                     <button class="filter-btn" data-filter="java">JAVA</button>
                     <button class="filter-btn" data-filter="js">JAVASCRIPT</button>
                     <button class="filter-btn" data-filter="python">PYTHON</button>
-                    <button class="filter-btn" data-filter="network">MẠNG MÁY TÍNH</button>
+                    <button class="filter-btn" data-filter="network" data-lang="filter_network">MẠNG MÁY TÍNH</button>
                     <button class="filter-btn" data-filter="c">C LANGUAGE</button>
-                    <button class="filter-btn" data-filter="fun">GIẢI TRÍ</button>
+                    <button class="filter-btn" data-filter="fun" data-lang="filter_fun">GIẢI TRÍ</button>
                 </div>
             </div>
 
@@ -178,24 +161,18 @@
                 <div class="project-card" data-category="network">
                     <div class="project-info">
                         <span class="category">Network</span>
-                        <h3>Mô hình OSI 7 Tầng</h3>
-                        <p>Hiểu về cách dữ liệu di chuyển từ tầng Vật lý (Physical) đến Ứng dụng (Application) một cách dễ hiểu nhất.</p>
-                        <div class="code-snippet"><pre>
-1. Physical (Dây cáp)
-...
-7. Application (HTTP, FTP)</pre></div>
+                        <h3 data-lang="blog_osi_title">Mô hình OSI 7 Tầng</h3>
+                        <p data-lang="blog_osi_desc">Hiểu về cách dữ liệu di chuyển từ tầng Vật lý (Physical) đến Ứng dụng (Application) một cách dễ hiểu nhất.</p>
+                        <div class="code-snippet"><pre>1. Physical... 7. Application</pre></div>
                     </div>
                 </div>
 
                 <div class="project-card" data-category="network">
                     <div class="project-info">
                         <span class="category">Network</span>
-                        <h3>DNS: Danh bạ của Internet</h3>
-                        <p>Tại sao bạn gõ google.com chứ không phải 142.250.1.1? Cơ chế phân giải tên miền hoạt động ra sao?</p>
-                        <div class="code-snippet"><pre>
-User -> google.com 
-DNS Server -> 142.x.x.x
-Browser -> Connect IP</pre></div>
+                        <h3 data-lang="blog_dns_title">DNS: Danh bạ của Internet</h3>
+                        <p data-lang="blog_dns_desc">Tại sao bạn gõ google.com chứ không phải 142.250.1.1? Cơ chế phân giải tên miền hoạt động ra sao?</p>
+                        <div class="code-snippet"><pre>User -> google.com -> IP</pre></div>
                     </div>
                 </div>
 
@@ -204,10 +181,7 @@ Browser -> Connect IP</pre></div>
                         <span class="category">Network</span>
                         <h3>HTTP vs HTTPS & SSL</h3>
                         <p>Sự khác biệt về bảo mật và quy trình "bắt tay" (Handshake) để mã hóa dữ liệu truyền tải.</p>
-                        <div class="code-snippet"><pre>
-Client Hello -> Server Hello
-Certificate Exchange
-Key Generation -> Secure</pre></div>
+                        <div class="code-snippet"><pre>Client Hello -> Server Hello</pre></div>
                     </div>
                 </div>
                 
@@ -216,9 +190,7 @@ Key Generation -> Secure</pre></div>
                         <span class="category">Network</span>
                         <h3>Socket TCP Client-Server</h3>
                         <p>Mô hình giao tiếp tin cậy qua mạng. Nền tảng của các ứng dụng Chat.</p>
-                        <div class="code-snippet"><pre>
-ServerSocket sv = new ServerSocket(8888);
-Socket s = sv.accept(); // Chờ kết nối</pre></div>
+                        <div class="code-snippet"><pre>ServerSocket sv = new ServerSocket(8888);</pre></div>
                     </div>
                 </div>
 
@@ -227,9 +199,7 @@ Socket s = sv.accept(); // Chờ kết nối</pre></div>
                         <span class="category" style="background: #e91e63;">Funny</span>
                         <h3>"It works on my machine!"</h3>
                         <p>Câu nói kinh điển của mọi Dev: Tại sao code chạy ngon lành trên máy tôi nhưng sang máy sếp lại lỗi?</p>
-                        <div class="code-snippet"><pre>
-if (myMachine) { return true; }
-else { return "Crash!"; }</pre></div>
+                        <div class="code-snippet"><pre>if (myMachine) { return true; }</pre></div>
                     </div>
                 </div>
 
@@ -238,21 +208,16 @@ else { return "Crash!"; }</pre></div>
                         <span class="category" style="background: #e91e63;">Funny</span>
                         <h3>Code lúc 3h sáng vs 9h sáng</h3>
                         <p>Sự khác biệt giữa việc code trong trạng thái "thăng hoa" ban đêm và cơn đau đầu khi đọc lại vào sáng hôm sau.</p>
-                        <div class="code-snippet"><pre>
-// God only knows what this does
-var magic = 42; 
-// ToDo: Refactor later (Never)</pre></div>
+                        <div class="code-snippet"><pre>var magic = 42; // ToDo: Refactor later</pre></div>
                     </div>
                 </div>
 
                 <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3>Class và Object</h3>
-                        <p>Class là khuôn mẫu, Object là thực thể cụ thể. Đây là nền tảng của OOP.</p>
-                        <div class="code-snippet"><pre>
-class Car { String color = "Red"; }
-Car myCar = new Car();</pre></div>
+                        <h3 data-lang="blog_java_class_title">Class và Object</h3>
+                        <p data-lang="blog_java_class_desc">Class là khuôn mẫu, Object là thực thể cụ thể. Đây là nền tảng của OOP.</p>
+                        <div class="code-snippet"><pre>class Car { String color = "Red"; }</pre></div>
                     </div>
                 </div>
 
@@ -261,9 +226,7 @@ Car myCar = new Car();</pre></div>
                         <span class="category">Java</span>
                         <h3>ArrayList vs Array</h3>
                         <p>ArrayList linh hoạt hơn mảng thường vì có thể thay đổi kích thước động.</p>
-                        <div class="code-snippet"><pre>
-ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
-list.add("Java"); // Thêm phần tử</pre></div>
+                        <div class="code-snippet"><pre>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();</pre></div>
                     </div>
                 </div>
 
@@ -272,8 +235,7 @@ list.add("Java"); // Thêm phần tử</pre></div>
                         <span class="category">Java</span>
                         <h3>Kế thừa (Inheritance)</h3>
                         <p>Dùng từ khóa `extends` để lớp con kế thừa thuộc tính của lớp cha.</p>
-                        <div class="code-snippet"><pre>
-class Dog extends Animal { ... }</pre></div>
+                        <div class="code-snippet"><pre>class Dog extends Animal { ... }</pre></div>
                     </div>
                 </div>
 
@@ -282,8 +244,7 @@ class Dog extends Animal { ... }</pre></div>
                         <span class="category">Java</span>
                         <h3>Interface là gì?</h3>
                         <p>Interface chứa các hàm trừu tượng, giúp đa kế thừa trong Java.</p>
-                        <div class="code-snippet"><pre>
-interface Animal { void sound(); }</pre></div>
+                        <div class="code-snippet"><pre>interface Animal { void sound(); }</pre></div>
                     </div>
                 </div>
 
@@ -292,8 +253,7 @@ interface Animal { void sound(); }</pre></div>
                         <span class="category">JavaScript</span>
                         <h3>Let vs Const vs Var</h3>
                         <p>Nên dùng `const` mặc định, `let` khi cần đổi giá trị. Tránh dùng `var`.</p>
-                        <div class="code-snippet"><pre>
-const PI = 3.14; let age = 20;</pre></div>
+                        <div class="code-snippet"><pre>const PI = 3.14; let age = 20;</pre></div>
                     </div>
                 </div>
 
@@ -302,8 +262,7 @@ const PI = 3.14; let age = 20;</pre></div>
                         <span class="category">JavaScript</span>
                         <h3>Arrow Function</h3>
                         <p>Cách viết hàm ngắn gọn hơn trong ES6.</p>
-                        <div class="code-snippet"><pre>
-const add = a => a + 10;</pre></div>
+                        <div class="code-snippet"><pre>const add = a => a + 10;</pre></div>
                     </div>
                 </div>
 
@@ -312,8 +271,7 @@ const add = a => a + 10;</pre></div>
                         <span class="category">JavaScript</span>
                         <h3>Template Literals</h3>
                         <p>Nối chuỗi siêu dễ với dấu backtick (`).</p>
-                        <div class="code-snippet"><pre>
-console.log(`Hi ${name}!`);</pre></div>
+                        <div class="code-snippet"><pre>console.log(`Hi ${name}!`);</pre></div>
                     </div>
                 </div>
 
@@ -322,8 +280,7 @@ console.log(`Hi ${name}!`);</pre></div>
                         <span class="category">JavaScript</span>
                         <h3>DOM Manipulation</h3>
                         <p>Thay đổi nội dung HTML bằng JS.</p>
-                        <div class="code-snippet"><pre>
-document.getElementById("demo").innerHTML = "Hello";</pre></div>
+                        <div class="code-snippet"><pre>document.getElementById("demo").innerHTML</pre></div>
                     </div>
                 </div>
 
@@ -332,8 +289,7 @@ document.getElementById("demo").innerHTML = "Hello";</pre></div>
                         <span class="category">Python</span>
                         <h3>List Comprehension</h3>
                         <p>Tạo list mới từ list cũ chỉ trong 1 dòng code.</p>
-                        <div class="code-snippet"><pre>
-squares = [x**2 for x in nums]</pre></div>
+                        <div class="code-snippet"><pre>squares = [x**2 for x in nums]</pre></div>
                     </div>
                 </div>
 
@@ -342,8 +298,7 @@ squares = [x**2 for x in nums]</pre></div>
                         <span class="category">Python</span>
                         <h3>Dictionary cơ bản</h3>
                         <p>Lưu trữ dữ liệu dạng Key-Value cực mạnh mẽ.</p>
-                        <div class="code-snippet"><pre>
-info = {"name": "Huy", "age": 21}</pre></div>
+                        <div class="code-snippet"><pre>info = {"name": "Huy", "age": 21}</pre></div>
                     </div>
                 </div>
 
@@ -352,8 +307,7 @@ info = {"name": "Huy", "age": 21}</pre></div>
                         <span class="category">C Language</span>
                         <h3>Con trỏ (Pointer)</h3>
                         <p>Biến lưu địa chỉ bộ nhớ của biến khác.</p>
-                        <div class="code-snippet"><pre>
-int *ptr = &a;</pre></div>
+                        <div class="code-snippet"><pre>int *ptr = &a;</pre></div>
                     </div>
                 </div>
 
@@ -363,21 +317,22 @@ int *ptr = &a;</pre></div>
 
     <section id="certificates" class="section">
         <div class="container">
-            <h2 class="section-title">Chứng Chỉ Của Tôi</h2>
-            <p style="text-align: center; margin-bottom: 20px;">(Nhấn vào ảnh để xem chi tiết)</p>
+            <h2 class="section-title" data-lang="sec_cert">Chứng Chỉ Của Tôi</h2>
+            <p style="text-align: center; margin-bottom: 20px;" data-lang="cert_hint">(Nhấn vào ảnh để xem chi tiết)</p>
             
             <div class="certificates-grid">
                 <div class="cert-card" onclick="openModal(this)">
-                    <img src="images/jv1.jpg" alt="Chứng chỉ JavaScript Essentials 1">
-                    <p>Chứng chỉ Lập trình Java</p>
+                    <img src="images/jv1.jpg" alt="Chứng chỉ Java Essentials 1">
+                    <p data-lang="cert_java">Chứng chỉ Lập trình Java</p>
                 </div>
                 <div class="cert-card" onclick="openModal(this)">
                     <img src="images/net.jpg" alt="Chứng chỉ Mạng">
-                    <p>Chứng chỉ Lập trình Mạng</p>
+                    <p data-lang="cert_net">Chứng chỉ Lập trình Mạng</p>
                 </div>
                 <div class="cert-card" onclick="openModal(this)">
-                    <img src="images/jv2.jpg" alt="Chứng chỉ JavaScript Essentials 2">
-                    <p>Chứng chỉ Lập trình Java</p>
+                    <img src="images/jv2.jpg" alt="Chứng chỉ Java Essentials 2">
+                    <p>Chứng chỉ JavaScript Essentials 2</p>
+                </div>
             </div>
         </div>
     </section>
@@ -389,12 +344,12 @@ int *ptr = &a;</pre></div>
 
     <section id="contact" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Gửi Tin Nhắn</h2>
+            <h2 class="section-title" data-lang="sec_contact">Gửi Tin Nhắn</h2>
             <form class="contact-form">
-                <input type="text" placeholder="Họ và tên" required>
-                <input type="email" placeholder="Email" required>
-                <textarea rows="5" placeholder="Lời nhắn..." required></textarea>
-                <button type="submit" class="btn">Gửi tin nhắn</button>
+                <input type="text" id="contactName" placeholder="Họ và tên" required>
+                <input type="email" id="contactEmail" placeholder="Email" required>
+                <textarea rows="5" id="contactMsg" placeholder="Lời nhắn..." required></textarea>
+                <button type="submit" class="btn" data-lang="contact_btn">Gửi tin nhắn</button>
             </form>
         </div>
     </section>

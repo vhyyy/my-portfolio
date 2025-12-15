@@ -427,3 +427,32 @@ footer { background: var(--secondary-color); color: var(--bg-body); text-align: 
         font-size: 0.8rem;
     }
 }
+/* --- NÚT ĐỔI NGÔN NGỮ --- */
+.lang-btn {
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 2px 8px;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-right: 15px; /* Cách nút Darkmode ra */
+}
+
+.lang-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Trong Dark Mode nút cũng phải sáng lên */
+body.dark-mode .lang-btn {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+body.dark-mode .lang-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
