@@ -271,3 +271,10 @@ footer { background: var(--secondary-color); color: var(--bg-body); text-align: 
     .filter-buttons { gap: 10px; }
     .filter-btn { padding: 8px 15px; font-size: 0.8rem; }
 }
+html {
+    scroll-behavior: smooth;
+}
+/* Nếu bạn có menu cố định (sticky menu), thêm dòng này cho section để không bị che mất tiêu đề */
+section {
+    scroll-margin-top: 80px; /* Điều chỉnh số 80px theo chiều cao menu của bạn */
+}

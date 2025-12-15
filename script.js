@@ -12,7 +12,15 @@ setTimeout(hidePreloader, 3000);
 // --- 2. BỘ TỪ ĐIỂN DỊCH THUẬT (TRANSLATIONS) ---
 const translations = {
     vi: {
-        nav_home: "Trang chủ", nav_about: "Giới thiệu", nav_exp: "Kinh nghiệm", nav_blog: "Bài viết", nav_contact: "Liên hệ",
+        // MENU
+        nav_home: "Trang chủ", 
+        nav_about: "Giới thiệu", 
+        nav_exp: "Kinh nghiệm", 
+        nav_blog: "Bài viết", 
+        nav_cert: "Chứng chỉ", // <--- ĐÃ THÊM MỚI
+        nav_contact: "Liên hệ",
+
+        // HERO & ABOUT
         hero_welcome: "Chào mừng đến với Blog của", hero_iam: "Tôi là một",
         hero_desc: "Đam mê khám phá Lập trình mạng, Java, Python và JavaScript. Chuyên xây dựng các hệ thống ổn định và bảo mật.",
         hero_btn: "Đọc bài viết mới nhất",
@@ -46,13 +54,22 @@ const translations = {
         b_dict_t: "Dictionary cơ bản", b_dict_d: "Lưu trữ dữ liệu dạng Key-Value cực mạnh mẽ.",
         b_ptr_t: "Con trỏ (Pointer)", b_ptr_d: "Biến lưu địa chỉ bộ nhớ của biến khác.",
 
+        // CERTIFICATES & CONTACT
         sec_cert: "Chứng Chỉ Của Tôi", cert_hint: "(Nhấn vào ảnh để xem chi tiết)",
         c_jv1: "Chứng chỉ JavaScript Essentials 1", c_net: "Chứng chỉ Lập trình Mạng", c_jv2: "Chứng chỉ JavaScript Essentials 2",
         sec_contact: "Gửi Tin Nhắn", contact_btn: "Gửi tin nhắn",
         ph_search: "Tìm dữ liệu (VD: Java, Socket)...", ph_name: "Họ và tên", ph_msg: "Lời nhắn..."
     },
     en: {
-        nav_home: "Home", nav_about: "About", nav_exp: "Experience", nav_blog: "Blog", nav_contact: "Contact",
+        // MENU
+        nav_home: "Home", 
+        nav_about: "About", 
+        nav_exp: "Experience", 
+        nav_blog: "Blog", 
+        nav_cert: "Certificates", // <--- ĐÃ THÊM MỚI
+        nav_contact: "Contact",
+
+        // HERO & ABOUT
         hero_welcome: "Welcome to the Blog of", hero_iam: "I am a",
         hero_desc: "Passionate about Network Programming, Java, Python, and JavaScript. Specializing in building stable and secure systems.",
         hero_btn: "Read Latest Posts",
@@ -86,6 +103,7 @@ const translations = {
         b_dict_t: "Basic Dictionary", b_dict_d: "Storing data in Key-Value pairs efficiently.",
         b_ptr_t: "Pointers in C", b_ptr_d: "A variable that stores the memory address of another variable.",
 
+        // CERTIFICATES & CONTACT
         sec_cert: "My Certificates", cert_hint: "(Click image to view details)",
         c_jv1: "JavaScript Essentials 1 Certificate", c_net: "Network Programming Certificate", c_jv2: "JavaScript Essentials 2 Certificate",
         sec_contact: "Send Message", contact_btn: "Send Message",
@@ -246,8 +264,14 @@ window.onclick = function(event) { if (event.target == modal) modal.style.displa
 
 const projectLink = document.getElementById('project-link');
 if (projectLink) { projectLink.addEventListener('click', () => { window.open('https://github.com/vhyyy', '_blank'); }); }
+
 const certLink = document.getElementById('cert-link');
-if (certLink) { certLink.addEventListener('click', () => { const certSection = document.getElementById('certificates'); if (certSection) certSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); }
+if (certLink) { 
+    certLink.addEventListener('click', () => { 
+        const certSection = document.getElementById('certificates'); 
+        if (certSection) certSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+    }); 
+}
 
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
@@ -264,7 +288,7 @@ filterBtns.forEach(btn => {
             if (filterValue === 'all' || filterValue === cardCategory) {
                 card.style.display = 'flex';
                 card.style.animation = 'none';
-                card.offsetHeight;
+                card.offsetHeight; // Trigger reflow
                 card.style.animation = 'fadeIn 0.5s ease forwards';
             } else { card.style.display = 'none'; }
         });
