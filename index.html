@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiêu Viết Huy - Blog Cá Nhân</title>
+    <title>Tiêu Viết Huy - Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,9 +24,7 @@
                     <li><a href="#skills" data-lang="nav_exp">Kinh nghiệm</a></li>
                     <li><a href="#blog" data-lang="nav_blog">Bài viết</a></li>
                     <li><a href="#contact" data-lang="nav_contact">Liên hệ</a></li>
-                    
                     <li id="lang-toggle" class="lang-btn">VIE</li>
-
                     <li id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></li>
                 </ul>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
@@ -161,35 +159,35 @@
                 <div class="project-card" data-category="network">
                     <div class="project-info">
                         <span class="category">Network</span>
-                        <h3 data-lang="blog_osi_title">Mô hình OSI 7 Tầng</h3>
-                        <p data-lang="blog_osi_desc">Hiểu về cách dữ liệu di chuyển từ tầng Vật lý (Physical) đến Ứng dụng (Application) một cách dễ hiểu nhất.</p>
-                        <div class="code-snippet"><pre>1. Physical... 7. Application</pre></div>
+                        <h3 data-lang="b_osi_t">Mô hình OSI 7 Tầng</h3>
+                        <p data-lang="b_osi_d">Hiểu về cách dữ liệu di chuyển từ tầng Vật lý (Physical) đến Ứng dụng (Application) một cách dễ hiểu nhất.</p>
+                        <div class="code-snippet"><pre>1. Physical (Dây cáp)... 7. Application (HTTP)</pre></div>
                     </div>
                 </div>
 
                 <div class="project-card" data-category="network">
                     <div class="project-info">
                         <span class="category">Network</span>
-                        <h3 data-lang="blog_dns_title">DNS: Danh bạ của Internet</h3>
-                        <p data-lang="blog_dns_desc">Tại sao bạn gõ google.com chứ không phải 142.250.1.1? Cơ chế phân giải tên miền hoạt động ra sao?</p>
-                        <div class="code-snippet"><pre>User -> google.com -> IP</pre></div>
+                        <h3 data-lang="b_dns_t">DNS: Danh bạ của Internet</h3>
+                        <p data-lang="b_dns_d">Tại sao bạn gõ google.com chứ không phải 142.250.1.1? Cơ chế phân giải tên miền hoạt động ra sao?</p>
+                        <div class="code-snippet"><pre>User -> google.com -> 142.x.x.x -> Connect</pre></div>
                     </div>
                 </div>
 
                 <div class="project-card" data-category="network">
                     <div class="project-info">
                         <span class="category">Network</span>
-                        <h3>HTTP vs HTTPS & SSL</h3>
-                        <p>Sự khác biệt về bảo mật và quy trình "bắt tay" (Handshake) để mã hóa dữ liệu truyền tải.</p>
-                        <div class="code-snippet"><pre>Client Hello -> Server Hello</pre></div>
+                        <h3 data-lang="b_http_t">HTTP vs HTTPS & SSL</h3>
+                        <p data-lang="b_http_d">Sự khác biệt về bảo mật và quy trình "bắt tay" (Handshake) để mã hóa dữ liệu truyền tải.</p>
+                        <div class="code-snippet"><pre>Client Hello -> Server Hello -> Key Exchange</pre></div>
                     </div>
                 </div>
                 
                 <div class="project-card" data-category="network">
                     <div class="project-info">
                         <span class="category">Network</span>
-                        <h3>Socket TCP Client-Server</h3>
-                        <p>Mô hình giao tiếp tin cậy qua mạng. Nền tảng của các ứng dụng Chat.</p>
+                        <h3 data-lang="b_socket_t">Socket TCP Client-Server</h3>
+                        <p data-lang="b_socket_d">Mô hình giao tiếp tin cậy qua mạng. Nền tảng của các ứng dụng Chat.</p>
                         <div class="code-snippet"><pre>ServerSocket sv = new ServerSocket(8888);</pre></div>
                     </div>
                 </div>
@@ -198,34 +196,34 @@
                     <div class="project-info">
                         <span class="category" style="background: #e91e63;">Funny</span>
                         <h3>"It works on my machine!"</h3>
-                        <p>Câu nói kinh điển của mọi Dev: Tại sao code chạy ngon lành trên máy tôi nhưng sang máy sếp lại lỗi?</p>
-                        <div class="code-snippet"><pre>if (myMachine) { return true; }</pre></div>
+                        <p data-lang="b_works_d">Câu nói kinh điển của mọi Dev: Tại sao code chạy ngon lành trên máy tôi nhưng sang máy sếp lại lỗi?</p>
+                        <div class="code-snippet"><pre>if (myMachine) { return true; } else { crash(); }</pre></div>
                     </div>
                 </div>
 
                 <div class="project-card" data-category="fun">
                     <div class="project-info">
                         <span class="category" style="background: #e91e63;">Funny</span>
-                        <h3>Code lúc 3h sáng vs 9h sáng</h3>
-                        <p>Sự khác biệt giữa việc code trong trạng thái "thăng hoa" ban đêm và cơn đau đầu khi đọc lại vào sáng hôm sau.</p>
-                        <div class="code-snippet"><pre>var magic = 42; // ToDo: Refactor later</pre></div>
+                        <h3 data-lang="b_3am_t">Code lúc 3h sáng vs 9h sáng</h3>
+                        <p data-lang="b_3am_d">Sự khác biệt giữa việc code trong trạng thái "thăng hoa" ban đêm và cơn đau đầu khi đọc lại vào sáng hôm sau.</p>
+                        <div class="code-snippet"><pre>// God only knows what this does. ToDo: Fix later</pre></div>
                     </div>
                 </div>
 
                 <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3 data-lang="blog_java_class_title">Class và Object</h3>
-                        <p data-lang="blog_java_class_desc">Class là khuôn mẫu, Object là thực thể cụ thể. Đây là nền tảng của OOP.</p>
-                        <div class="code-snippet"><pre>class Car { String color = "Red"; }</pre></div>
+                        <h3 data-lang="b_cls_t">Class và Object</h3>
+                        <p data-lang="b_cls_d">Class là khuôn mẫu, Object là thực thể cụ thể. Đây là nền tảng của OOP.</p>
+                        <div class="code-snippet"><pre>class Car { ... } Car myCar = new Car();</pre></div>
                     </div>
                 </div>
 
                 <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3>ArrayList vs Array</h3>
-                        <p>ArrayList linh hoạt hơn mảng thường vì có thể thay đổi kích thước động.</p>
+                        <h3 data-lang="b_arr_t">ArrayList vs Array</h3>
+                        <p data-lang="b_arr_d">ArrayList linh hoạt hơn mảng thường vì có thể thay đổi kích thước động.</p>
                         <div class="code-snippet"><pre>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();</pre></div>
                     </div>
                 </div>
@@ -233,8 +231,8 @@
                  <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3>Kế thừa (Inheritance)</h3>
-                        <p>Dùng từ khóa `extends` để lớp con kế thừa thuộc tính của lớp cha.</p>
+                        <h3 data-lang="b_inh_t">Kế thừa (Inheritance)</h3>
+                        <p data-lang="b_inh_d">Dùng từ khóa `extends` để lớp con kế thừa thuộc tính của lớp cha.</p>
                         <div class="code-snippet"><pre>class Dog extends Animal { ... }</pre></div>
                     </div>
                 </div>
@@ -242,8 +240,8 @@
                 <div class="project-card" data-category="java">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3>Interface là gì?</h3>
-                        <p>Interface chứa các hàm trừu tượng, giúp đa kế thừa trong Java.</p>
+                        <h3 data-lang="b_int_t">Interface là gì?</h3>
+                        <p data-lang="b_int_d">Interface chứa các hàm trừu tượng, giúp đa kế thừa trong Java.</p>
                         <div class="code-snippet"><pre>interface Animal { void sound(); }</pre></div>
                     </div>
                 </div>
@@ -251,8 +249,8 @@
                 <div class="project-card" data-category="js">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
-                        <h3>Let vs Const vs Var</h3>
-                        <p>Nên dùng `const` mặc định, `let` khi cần đổi giá trị. Tránh dùng `var`.</p>
+                        <h3 data-lang="b_var_t">Let vs Const vs Var</h3>
+                        <p data-lang="b_var_d">Nên dùng `const` mặc định, `let` khi cần đổi giá trị. Tránh dùng `var`.</p>
                         <div class="code-snippet"><pre>const PI = 3.14; let age = 20;</pre></div>
                     </div>
                 </div>
@@ -260,8 +258,8 @@
                 <div class="project-card" data-category="js">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
-                        <h3>Arrow Function</h3>
-                        <p>Cách viết hàm ngắn gọn hơn trong ES6.</p>
+                        <h3 data-lang="b_arrw_t">Arrow Function</h3>
+                        <p data-lang="b_arrw_d">Cách viết hàm ngắn gọn hơn trong ES6.</p>
                         <div class="code-snippet"><pre>const add = a => a + 10;</pre></div>
                     </div>
                 </div>
@@ -269,8 +267,8 @@
                  <div class="project-card" data-category="js">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
-                        <h3>Template Literals</h3>
-                        <p>Nối chuỗi siêu dễ với dấu backtick (`).</p>
+                        <h3 data-lang="b_lit_t">Template Literals</h3>
+                        <p data-lang="b_lit_d">Nối chuỗi siêu dễ với dấu backtick (`).</p>
                         <div class="code-snippet"><pre>console.log(`Hi ${name}!`);</pre></div>
                     </div>
                 </div>
@@ -278,17 +276,17 @@
                  <div class="project-card" data-category="js">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
-                        <h3>DOM Manipulation</h3>
-                        <p>Thay đổi nội dung HTML bằng JS.</p>
-                        <div class="code-snippet"><pre>document.getElementById("demo").innerHTML</pre></div>
+                        <h3 data-lang="b_dom_t">DOM Manipulation</h3>
+                        <p data-lang="b_dom_d">Thay đổi nội dung HTML bằng JS.</p>
+                        <div class="code-snippet"><pre>document.getElementById("demo").innerHTML = "Hi";</pre></div>
                     </div>
                 </div>
 
                 <div class="project-card" data-category="python">
                     <div class="project-info">
                         <span class="category">Python</span>
-                        <h3>List Comprehension</h3>
-                        <p>Tạo list mới từ list cũ chỉ trong 1 dòng code.</p>
+                        <h3 data-lang="b_list_t">List Comprehension</h3>
+                        <p data-lang="b_list_d">Tạo list mới từ list cũ chỉ trong 1 dòng code.</p>
                         <div class="code-snippet"><pre>squares = [x**2 for x in nums]</pre></div>
                     </div>
                 </div>
@@ -296,8 +294,8 @@
                 <div class="project-card" data-category="python">
                     <div class="project-info">
                         <span class="category">Python</span>
-                        <h3>Dictionary cơ bản</h3>
-                        <p>Lưu trữ dữ liệu dạng Key-Value cực mạnh mẽ.</p>
+                        <h3 data-lang="b_dict_t">Dictionary cơ bản</h3>
+                        <p data-lang="b_dict_d">Lưu trữ dữ liệu dạng Key-Value cực mạnh mẽ.</p>
                         <div class="code-snippet"><pre>info = {"name": "Huy", "age": 21}</pre></div>
                     </div>
                 </div>
@@ -305,8 +303,8 @@
                 <div class="project-card" data-category="c">
                     <div class="project-info">
                         <span class="category">C Language</span>
-                        <h3>Con trỏ (Pointer)</h3>
-                        <p>Biến lưu địa chỉ bộ nhớ của biến khác.</p>
+                        <h3 data-lang="b_ptr_t">Con trỏ (Pointer)</h3>
+                        <p data-lang="b_ptr_d">Biến lưu địa chỉ bộ nhớ của biến khác.</p>
                         <div class="code-snippet"><pre>int *ptr = &a;</pre></div>
                     </div>
                 </div>
@@ -322,16 +320,16 @@
             
             <div class="certificates-grid">
                 <div class="cert-card" onclick="openModal(this)">
-                    <img src="images/jv1.jpg" alt="Chứng chỉ Java Essentials 1">
-                    <p data-lang="cert_java">Chứng chỉ Lập trình Java</p>
+                    <img src="images/jv1.jpg" alt="Java Cert">
+                    <p data-lang="c_jv1">Chứng chỉ JavaScript Essentials 1</p>
                 </div>
                 <div class="cert-card" onclick="openModal(this)">
-                    <img src="images/net.jpg" alt="Chứng chỉ Mạng">
-                    <p data-lang="cert_net">Chứng chỉ Lập trình Mạng</p>
+                    <img src="images/net.jpg" alt="Network Cert">
+                    <p data-lang="c_net">Chứng chỉ Lập trình Mạng</p>
                 </div>
                 <div class="cert-card" onclick="openModal(this)">
-                    <img src="images/jv2.jpg" alt="Chứng chỉ Java Essentials 2">
-                    <p>Chứng chỉ JavaScript Essentials 2</p>
+                    <img src="images/jv2.jpg" alt="JS Cert">
+                    <p data-lang="c_jv2">Chứng chỉ JavaScript Essentials 2</p>
                 </div>
             </div>
         </div>
