@@ -1,4 +1,25 @@
-// --- 1. BỘ TỪ ĐIỂN ANH - VIỆT ---
+// --- 1. PRELOADER (SỬA LỖI XOAY LIÊN TỤC) ---
+const preloader = document.getElementById('preloader');
+
+function hidePreloader() {
+    if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    }
+}
+
+// Cách 1: Tắt khi cấu trúc web tải xong (Nhanh hơn, không đợi ảnh)
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(hidePreloader, 800); // Chờ 0.8s cho hiệu ứng đẹp rồi tắt
+});
+
+// Cách 2 (Dự phòng): Tắt cưỡng chế sau 3 giây nếu mạng quá lag
+setTimeout(hidePreloader, 3000);
+
+
+// --- 2. BỘ TỪ ĐIỂN ANH - VIỆT ---
 const translations = {
     vi: {
         nav_home: "Trang chủ",
@@ -32,7 +53,7 @@ const translations = {
         cert_net: "Chứng chỉ Lập trình Mạng",
         sec_contact: "Gửi Tin Nhắn",
         contact_btn: "Gửi tin nhắn",
-        // Blog Titles & Descs (Ví dụ)
+        // Blog & Code
         blog_osi_title: "Mô hình OSI 7 Tầng",
         blog_osi_desc: "Hiểu về cách dữ liệu di chuyển từ tầng Vật lý (Physical) đến Ứng dụng (Application).",
         blog_dns_title: "DNS: Danh bạ của Internet",
@@ -76,7 +97,7 @@ const translations = {
         cert_net: "Network Programming Certificate",
         sec_contact: "Send Message",
         contact_btn: "Send Message",
-        // Blog Titles & Descs
+        // Blog
         blog_osi_title: "OSI 7-Layer Model",
         blog_osi_desc: "Understanding how data moves from Physical layer to Application layer.",
         blog_dns_title: "DNS: The Phonebook of Internet",
@@ -90,16 +111,16 @@ const translations = {
     }
 };
 
-// --- 2. LOGIC ĐỔI NGÔN NGỮ ---
+// --- 3. LOGIC ĐỔI NGÔN NGỮ ---
 const langBtn = document.getElementById('lang-toggle');
-let currentLang = localStorage.getItem('lang') || 'vi'; // Mặc định là tiếng Việt
+let currentLang = localStorage.getItem('lang') || 'vi'; 
+let words = ["Sinh viên CNTT", "Java Developer", "Network Engineer", "Web Developer"]; // Mặc định
 
-// Hàm cập nhật ngôn ngữ
 function updateLanguage(lang) {
-    // 1. Cập nhật nút bấm
-    langBtn.textContent = lang === 'vi' ? 'VIE' : 'ENG';
+    // Cập nhật nút bấm
+    if(langBtn) langBtn.textContent = lang === 'vi' ? 'VIE' : 'ENG';
 
-    // 2. Cập nhật tất cả các thẻ có data-lang
+    // Cập nhật text
     const elements = document.querySelectorAll('[data-lang]');
     elements.forEach(el => {
         const key = el.getAttribute('data-lang');
@@ -108,12 +129,16 @@ function updateLanguage(lang) {
         }
     });
 
-    // 3. Cập nhật Placeholders (Input, Textarea)
-    document.getElementById('searchInput').placeholder = translations[lang].ph_search;
-    document.getElementById('contactName').placeholder = translations[lang].ph_name;
-    document.getElementById('contactMsg').placeholder = translations[lang].ph_msg;
+    // Cập nhật Placeholders
+    const searchInp = document.getElementById('searchInput');
+    const nameInp = document.getElementById('contactName');
+    const msgInp = document.getElementById('contactMsg');
+    
+    if(searchInp) searchInp.placeholder = translations[lang].ph_search;
+    if(nameInp) nameInp.placeholder = translations[lang].ph_name;
+    if(msgInp) msgInp.placeholder = translations[lang].ph_msg;
 
-    // 4. Cập nhật Typewriter (Chữ chạy)
+    // Cập nhật từ khóa cho Typewriter
     if (lang === 'en') {
         words = ["IT Student", "Java Developer", "Network Engineer", "Web Developer"];
     } else {
@@ -121,109 +146,126 @@ function updateLanguage(lang) {
     }
 }
 
-// Khởi chạy lần đầu
+// Khởi chạy ngôn ngữ lần đầu
 updateLanguage(currentLang);
 
-// Sự kiện click nút
-langBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'vi' ? 'en' : 'vi';
-    localStorage.setItem('lang', currentLang);
-    updateLanguage(currentLang);
-});
+if(langBtn) {
+    langBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'vi' ? 'en' : 'vi';
+        localStorage.setItem('lang', currentLang);
+        updateLanguage(currentLang);
+    });
+}
 
 
-// --- 3. CÁC LOGIC CŨ (GIỮ NGUYÊN) ---
-
-const preloader = document.getElementById('preloader');
-window.addEventListener('load', function() {
-    preloader.style.opacity = '0'; 
-    setTimeout(() => { preloader.style.display = 'none'; }, 500);
-});
-
+// --- 4. DARK MODE ---
 const themeBtn = document.getElementById('theme-toggle');
-const themeIcon = themeBtn.querySelector('i');
+const themeIcon = themeBtn ? themeBtn.querySelector('i') : null;
 const body = document.body;
 
 if (localStorage.getItem('theme') === 'dark') {
     body.classList.add('dark-mode');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
+    if(themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
 }
 
-themeBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'light');
-    }
-});
+if(themeBtn) {
+    themeBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            if(themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            if(themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
 
+
+// --- 5. MOBILE MENU ---
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    if (navLinks.classList.contains('active')) {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '70px';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = 'var(--nav-bg)';
-        navLinks.style.padding = '20px';
-        navLinks.style.boxShadow = '0 5px 10px var(--shadow)';
-    } else {
-        navLinks.style.display = 'none';
-    }
-});
+if(hamburger) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        if (navLinks.classList.contains('active')) {
+            navLinks.style.display = 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'var(--nav-bg)';
+            navLinks.style.padding = '20px';
+            navLinks.style.boxShadow = '0 5px 10px var(--shadow)';
+        } else {
+            navLinks.style.display = 'none';
+        }
+    });
+}
 
+
+// --- 6. SCROLL ANIMATION ---
 const animatedElements = document.querySelectorAll('.hero-text, .hero-img, .section-title, .about-content, .stat-box, .info-card, .project-card, .cert-card, .contact-form');
 animatedElements.forEach((el) => el.classList.add('hidden'));
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        if (entry.isIntersecting) { entry.target.classList.add('show'); }
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
     });
 });
 animatedElements.forEach((el) => observer.observe(el));
 
+
+// --- 7. PROGRESS BAR & BACK TO TOP ---
 const progressBar = document.querySelector('.scroll-progress');
 const backToTopBtn = document.getElementById("backToTop");
 
 window.onscroll = function() {
+    // Progress Bar
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 100;
-    progressBar.style.width = scrolled + "%";
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopBtn.style.display = "block";
-    } else {
-        backToTopBtn.style.display = "none";
+    if(progressBar) progressBar.style.width = scrolled + "%";
+
+    // Back to Top
+    if(backToTopBtn) {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopBtn.style.display = "block";
+        } else {
+            backToTopBtn.style.display = "none";
+        }
     }
 };
 
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+if(backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
-// TYPEWRITER (Biến words đã được khai báo ở trên để đổi ngôn ngữ)
+
+// --- 8. TYPEWRITER EFFECT ---
 const textElement = document.querySelector(".typing-text");
-let words = ["Sinh viên CNTT", "Java Developer", "Network Engineer", "Web Developer"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
 function typeEffect() {
+    if(!textElement) return;
+    
     const currentWord = words[wordIndex];
     if (isDeleting) {
         textElement.textContent = currentWord.substring(0, charIndex--);
     } else {
         textElement.textContent = currentWord.substring(0, charIndex++);
     }
+
     let typeSpeed = isDeleting ? 50 : 100;
+
     if (!isDeleting && charIndex === currentWord.length) {
         typeSpeed = 2000;
         isDeleting = true;
@@ -236,14 +278,19 @@ function typeEffect() {
 }
 document.addEventListener('DOMContentLoaded', typeEffect);
 
+
+// --- 9. CUSTOM CURSOR ---
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorOutline = document.querySelector('.cursor-outline');
+
 window.addEventListener('mousemove', function(e) {
     const posX = e.clientX;
     const posY = e.clientY;
-    if (window.innerWidth > 768) {
+    
+    if (window.innerWidth > 768 && cursorDot && cursorOutline) {
         cursorDot.style.left = `${posX}px`;
         cursorDot.style.top = `${posY}px`;
+        
         cursorOutline.animate({
             left: `${posX}px`,
             top: `${posY}px`
@@ -251,37 +298,70 @@ window.addEventListener('mousemove', function(e) {
     }
 });
 
+
+// --- 10. LIGHTBOX (MODAL ẢNH) ---
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("img01");
-function openModal(element) {
-    modal.style.display = "block";
-    const imgElement = element.querySelector('img');
-    modalImg.src = imgElement.src;
-}
-function closeModal() { modal.style.display = "none"; }
-window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 
+function openModal(element) {
+    if(modal && modalImg) {
+        modal.style.display = "block";
+        const imgElement = element.querySelector('img');
+        if(imgElement) modalImg.src = imgElement.src;
+    }
+}
+
+function closeModal() {
+    if(modal) modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+// --- 11. EXTERNAL LINKS ---
 const projectLink = document.getElementById('project-link');
-if (projectLink) { projectLink.addEventListener('click', () => { window.open('https://github.com/vhyyy', '_blank'); }); }
+if (projectLink) {
+    projectLink.addEventListener('click', () => {
+        window.open('https://github.com/vhyyy', '_blank');
+    });
+}
 
 const certLink = document.getElementById('cert-link');
-if (certLink) { certLink.addEventListener('click', () => { const certSection = document.getElementById('certificates'); if (certSection) { certSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); }
+if (certLink) {
+    certLink.addEventListener('click', () => {
+        const certSection = document.getElementById('certificates');
+        if (certSection) {
+            certSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
 
+
+// --- 12. SEARCH & FILTER (TÌM KIẾM BÀI VIẾT) ---
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const searchInput = document.getElementById('searchInput');
 
+// A. Filter Button Logic
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        document.querySelector('.filter-btn.active').classList.remove('active');
+        const activeBtn = document.querySelector('.filter-btn.active');
+        if(activeBtn) activeBtn.classList.remove('active');
         btn.classList.add('active');
+
         const filterValue = btn.getAttribute('data-filter');
+
         projectCards.forEach(card => {
             const cardCategory = card.getAttribute('data-category');
             if (filterValue === 'all' || filterValue === cardCategory) {
                 card.style.display = 'flex';
+                // Reset Animation
                 card.style.animation = 'none';
-                card.offsetHeight;
+                card.offsetHeight; /* trigger reflow */
                 card.style.animation = 'fadeIn 0.5s ease forwards';
             } else {
                 card.style.display = 'none';
@@ -290,20 +370,26 @@ filterBtns.forEach(btn => {
     });
 });
 
+// B. Search Input Logic
 if (searchInput) {
     searchInput.addEventListener('keyup', (e) => {
         const term = e.target.value.toLowerCase();
+        
         if(term.length > 0) {
             const activeBtn = document.querySelector('.filter-btn.active');
             if(activeBtn && activeBtn.getAttribute('data-filter') !== 'all') {
                  activeBtn.classList.remove('active');
-                 document.querySelector('[data-filter="all"]').classList.add('active');
+                 const allBtn = document.querySelector('[data-filter="all"]');
+                 if(allBtn) allBtn.classList.add('active');
             }
         }
+
         projectCards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const desc = card.querySelector('p').textContent.toLowerCase();
-            const category = card.querySelector('.category').textContent.toLowerCase();
+            const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : "";
+            const desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : "";
+            const categoryElem = card.querySelector('.category');
+            const category = categoryElem ? categoryElem.textContent.toLowerCase() : "";
+
             if (title.includes(term) || desc.includes(term) || category.includes(term)) {
                 card.style.display = 'flex';
                 card.style.animation = 'fadeIn 0.5s ease forwards';
@@ -314,6 +400,15 @@ if (searchInput) {
     });
 }
 
-const styleSheet = document.createElement("style");
-styleSheet.innerText = `@keyframes fadeIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }`;
-document.head.appendChild(styleSheet);
+// Thêm keyframe animation (chỉ chạy 1 lần)
+if (!document.getElementById('dynamic-styles')) {
+    const styleSheet = document.createElement("style");
+    styleSheet.id = 'dynamic-styles';
+    styleSheet.innerText = `
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    `;
+    document.head.appendChild(styleSheet);
+}
