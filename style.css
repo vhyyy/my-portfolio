@@ -26,8 +26,11 @@ body.dark-mode {
 * {
     margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -58,14 +61,27 @@ body {
     z-index: 2000; transition: width 0.1s;
 }
 
+/* --- CURSOR RGB EFFECT --- */
+@keyframes rotate-hue {
+    to { filter: hue-rotate(360deg); }
+}
+
 .cursor-dot, .cursor-outline {
     position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
     border-radius: 50%; z-index: 9999; pointer-events: none;
 }
 .cursor-dot { width: 5px; height: 5px; background-color: var(--text-color); }
+
 .cursor-outline {
-    width: 30px; height: 30px; border: 2px solid var(--primary-color);
+    width: 30px; height: 30px; 
+    border: 2px solid #ff0000; /* Màu gốc đỏ để xoay RGB */
     transition: width 0.2s, height 0.2s, background-color 0.2s;
+    animation: rotate-hue 2s linear infinite; /* Hiệu ứng xoay màu */
+}
+
+.cursor-outline.active {
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    border: none; opacity: 0.8;
 }
 
 /* --- 4. HEADER & NAV --- */
@@ -94,7 +110,7 @@ header .container { display: flex; justify-content: space-between; align-items: 
 }
 .theme-btn:hover { background: var(--bg-light); color: var(--primary-color); }
 
-/* Nút Ngôn Ngữ (MỚI) */
+/* Nút Ngôn Ngữ */
 .lang-btn {
     cursor: pointer; font-size: 0.9rem; font-weight: bold;
     color: var(--secondary-color); border: 2px solid var(--secondary-color);
@@ -109,23 +125,55 @@ body.dark-mode .lang-btn { border-color: var(--secondary-color); color: var(--se
 
 /* --- 5. HERO SECTION --- */
 .hero {
-    height: 100vh; display: flex; align-items: center;
+    min-height: 100vh; display: flex; align-items: center;
     background: linear-gradient(135deg, var(--bg-light), var(--bg-body)); padding-top: 70px;
 }
 .hero-content { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 .hero-text h3 { font-size: 1.5rem; color: var(--secondary-color); }
 .hero-text h1 { font-size: 3rem; margin: 10px 0; color: var(--primary-color); }
 .hero-text span { color: var(--primary-color); font-weight: bold; }
-.hero-desc { margin-top: 10px; font-size: 1rem; opacity: 0.8; }
+.hero-desc {
+    margin-top: 20px; /* Đẩy xuống xa hơn một chút so với tên */
+    font-size: 1.1rem; /* Cho chữ to lên xíu nhìn cho rõ */
+    opacity: 0.9;
+    
+    /* --- CÁC DÒNG QUAN TRỌNG MỚI THÊM --- */
+    max-width: 500px; /* Giới hạn độ rộng chỉ 500px để chữ tự xuống dòng */
+    line-height: 1.8; /* Tăng khoảng cách giữa các dòng cho thoáng mắt */
+    margin-bottom: 30px; /* Tạo khoảng cách với các icon bên dưới */
+}
 .typing-text { color: var(--primary-color); }
 .cursor { display: inline-block; width: 2px; background-color: var(--text-color); animation: blink 1s infinite; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
+/* === AVATAR NEON STYLE (UPDATED) === */
 .hero-img img {
-    width: 400px; height: 400px; object-fit: cover; border-radius: 50%;
-    box-shadow: 0 10px 20px var(--shadow); animation: float 3s ease-in-out infinite;
+    width: 100%; 
+    height: auto;
+    max-width: 400px; 
+    object-fit: cover; 
+    
+    /* Bo góc hình chữ nhật */
+    border-radius: 30px; 
+    
+    /* Hiệu ứng Neon Cyan */
+    box-shadow: 
+        0 0 10px #00ffff,
+        0 0 30px rgba(0, 255, 255, 0.8),
+        0 0 70px rgba(0, 255, 255, 0.5);
+    
+    border: 2px solid rgba(0, 255, 255, 0.6);
+    transition: all 0.4s ease-in-out;
 }
-@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+
+.hero-img img:hover {
+    transform: scale(1.03);
+    box-shadow: 
+        0 0 15px #00ffff,
+        0 0 50px rgba(0, 255, 255, 0.9),
+        0 0 100px rgba(0, 255, 255, 0.7);
+    border-color: #00ffff;
+}
 
 .btn {
     display: inline-block; background: var(--primary-color); color: #fff;
@@ -148,6 +196,8 @@ body.dark-mode .lang-btn { border-color: var(--secondary-color); color: var(--se
 
 /* --- 6. SECTIONS & LAYOUT --- */
 .section { padding: 80px 0; }
+section { scroll-margin-top: 80px; } /* Tránh bị menu che mất tiêu đề */
+
 .bg-light { background: var(--bg-light); }
 .section-title {
     text-align: center; font-size: 2rem; margin-bottom: 50px;
@@ -161,7 +211,7 @@ body.dark-mode .lang-btn { border-color: var(--secondary-color); color: var(--se
     box-shadow: 0 5px 15px var(--shadow); border-radius: 10px;
     transition: 0.4s; margin-bottom: 30px;
 }
-.project-card:hover, .cert-card:hover, .info-card:hover, .stat-box:hover {
+.project-card:hover, .info-card:hover, .stat-box:hover {
     transform: translateY(-10px); box-shadow: 0 15px 30px var(--shadow);
 }
 .about-left .info-card:last-child { margin-bottom: 0; }
@@ -260,7 +310,44 @@ footer { background: var(--secondary-color); color: var(--bg-body); text-align: 
 .hidden { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
 .show { opacity: 1; transform: translateY(0); }
 
-/* --- 10. RESPONSIVE --- */
+/* --- 10. RGB EFFECTS & UTILITIES --- */
+
+/* Text RGB */
+@keyframes rainbow-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.rgb-text {
+    background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-text 3s linear infinite;
+    font-weight: bold;
+}
+
+/* Border RGB Hover */
+@keyframes rgb-border {
+    0% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+    20% { border-color: #ffff00; box-shadow: 0 0 10px #ffff00; }
+    40% { border-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
+    60% { border-color: #00ffff; box-shadow: 0 0 10px #00ffff; }
+    80% { border-color: #0000ff; box-shadow: 0 0 10px #0000ff; }
+    100% { border-color: #ff00ff; box-shadow: 0 0 10px #ff00ff; }
+}
+
+.project-card:hover, .cert-card:hover {
+    animation: rgb-border 2s linear infinite;
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+    border: 2px solid transparent; 
+}
+
+/* --- 11. RESPONSIVE --- */
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: block; }
@@ -271,10 +358,77 @@ footer { background: var(--secondary-color); color: var(--bg-body); text-align: 
     .filter-buttons { gap: 10px; }
     .filter-btn { padding: 8px 15px; font-size: 0.8rem; }
 }
-html {
-    scroll-behavior: smooth;
+/* --- MUSIC PLAYER BOTTOM-LEFT --- */
+.music-widget {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* Cố định góc trái */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-/* Nếu bạn có menu cố định (sticky menu), thêm dòng này cho section để không bị che mất tiêu đề */
-section {
-    scroll-margin-top: 80px; /* Điều chỉnh số 80px theo chiều cao menu của bạn */
+
+.disk-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #111; /* Màu đen của đĩa than */
+    background: radial-gradient(circle, #333 30%, #111 70%);
+    border: 2px solid var(--secondary-color);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease;
+}
+
+/* Tâm đĩa than */
+.disk-center {
+    width: 24px;
+    height: 24px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+
+.disk-center i {
+    font-size: 10px;
+    color: #fff;
+}
+
+/* HIỆU ỨNG KHI NHẠC CHẠY (.playing) */
+/* 1. Xoay tròn liên tục */
+@keyframes spinDisk {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 2. Hiệu ứng RGB phát sáng */
+@keyframes rgbGlow {
+    0% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; border-color: #ff0000; }
+    33% { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; border-color: #00ff00; }
+    66% { box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff; border-color: #0000ff; }
+    100% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; border-color: #ff0000; }
+}
+
+.disk-btn.playing {
+    animation: spinDisk 3s linear infinite, rgbGlow 3s linear infinite;
+}
+
+/* Hover nhẹ thì phóng to xíu */
+.disk-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive mobile: Thu nhỏ lại chút */
+@media (max-width: 768px) {
+    .music-widget { bottom: 20px; left: 20px; }
+    .disk-btn { width: 45px; height: 45px; }
+    .disk-center { width: 18px; height: 18px; }
 }

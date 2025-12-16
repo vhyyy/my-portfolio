@@ -324,3 +324,31 @@ if (!document.getElementById('dynamic-styles')) {
     styleSheet.innerText = `@keyframes fadeIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }`;
     document.head.appendChild(styleSheet);
 }
+// --- MUSIC PLAYER CONTROL ---
+const musicBtn = document.getElementById('musicToggle');
+const bgMusic = document.getElementById('bgMusic');
+let isPlaying = false;
+
+if (musicBtn && bgMusic) {
+    // Đặt âm lượng mặc định nhỏ (30%) để không làm phiền người dùng
+    bgMusic.volume = 0.3;
+
+    musicBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            bgMusic.pause();
+            musicBtn.classList.remove('playing'); // Dừng xoay & tắt RGB
+            // Đổi icon về Play
+            musicBtn.querySelector('i').className = 'fas fa-music';
+        } else {
+            bgMusic.play().then(() => {
+                // Nhạc bắt đầu chạy mới thêm hiệu ứng
+                musicBtn.classList.add('playing'); // Bắt đầu xoay & bật RGB
+                // Đổi icon thành Pause
+                musicBtn.querySelector('i').className = 'fas fa-pause';
+            }).catch(error => {
+                console.log("Trình duyệt chặn tự phát nhạc: ", error);
+            });
+        }
+        isPlaying = !isPlaying;
+    });
+}
