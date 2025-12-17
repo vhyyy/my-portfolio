@@ -1,25 +1,125 @@
-/* --- 1. BIẾN MÀU SẮC (LIGHT MODE) --- */
+/* --- 1. THAY THẾ TOÀN BỘ PHẦN :ROOT CŨ --- */
 :root {
-    --primary-color: #007bff;       /* Màu chủ đạo */
-    --secondary-color: #2c3e50;     /* Màu chữ đậm */
-    --text-color: #333;             /* Màu chữ thường */
-    --bg-body: #ffffff;             /* Nền trang web */
-    --bg-light: #f9f9f9;            /* Nền các section phụ */
-    --bg-card: #ffffff;             /* Nền thẻ bài viết/card */
-    --shadow: rgba(0,0,0,0.1);      /* Màu bóng đổ */
-    --nav-bg: #ffffff;              /* Nền thanh menu */
+    /* Màu chủ đạo: Xanh điện tử (Electric Blue) sắc nét */
+    --primary-color: #2563eb; 
+    
+    /* Màu chữ: Xanh than đậm (Deep Navy) để tương phản tốt trên nền sáng */
+    --secondary-color: #1e293b; 
+    --text-color: #334155; 
+    
+    /* Cấu hình nền cho Light Mode "Holographic" */
+    --bg-body: #ffffff; 
+    --bg-light: rgba(255, 255, 255, 0.6); /* Trong suốt để lộ nền loang màu */
+    --bg-card: rgba(255, 255, 255, 0.7); /* Kính mờ trắng */
+    
+    /* Bóng đổ màu (Colored Shadows) thay vì bóng đen nhàm chán */
+    --shadow: 0 10px 40px rgba(37, 99, 235, 0.15); 
+    --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* --- 2. TẠO NỀN HOLOGRAPHIC CHO LIGHT MODE (Dán dưới :root) --- */
+body:not(.dark-mode) {
+    background-color: #ffffff;
+    
+    /* Tạo hiệu ứng loang màu 4 góc (Xanh băng + Tím khói) */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.4) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(192, 132, 252, 0.4) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.4) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(192, 132, 252, 0.4) 0px, transparent 50%);
+        
+    background-attachment: fixed; /* Cố định nền khi cuộn */
+    background-size: 100% 100%;
+}
+
+/* --- 3. BIẾN CARD THÀNH KÍNH PHẢN QUANG (PRISM GLASS) --- */
+body:not(.dark-mode) .project-card,
+body:not(.dark-mode) .cert-card,
+body:not(.dark-mode) .info-card,
+body:not(.dark-mode) .stat-box {
+    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+    backdrop-filter: blur(20px); /* Mờ hậu cảnh mạnh */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1); /* Viền trắng sắc nét */
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.1), /* Bóng xanh nhẹ */
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* Hiệu ứng viền trong */
+}
+
+/* Khi di chuột vào: Card sáng rực lên như đèn LED trắng */
+body:not(.dark-mode) .project-card:hover,
+body:not(.dark-mode) .cert-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.25); /* Bóng xanh đậm hơn */
+    border-color: #2563eb; /* Viền chuyển màu xanh chủ đạo */
+}
+
+/* --- 4. TITLE CÓ HIỆU ỨNG GRADIENT (Cho chữ đỡ nhàm chán) --- */
+body:not(.dark-mode) .section-title,
+body:not(.dark-mode) h1, 
+body:not(.dark-mode) h2, 
+body:not(.dark-mode) h3 {
+    /* Chữ màu gradient nhẹ nhàng nhưng sang */
+    background: -webkit-linear-gradient(45deg, #1e293b, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* --- DARK MODE VARIABLES --- */
+/* --- SỬA LẠI ĐOẠN NÀY TRONG STYLE.CSS --- */
+
+/* --- THAY THẾ TOÀN BỘ PHẦN BODY.DARK-MODE CŨ BẰNG ĐOẠN NÀY --- */
+
 body.dark-mode {
-    --primary-color: #4da3ff;
+    /* 1. Các biến màu cho Dark Mode */
+    --primary-color: #00ffff; /* Đổi màu chủ đạo thành Cyan neon cho nổi */
     --secondary-color: #e0e0e0;
     --text-color: #cccccc;
-    --bg-body: #121212;
-    --bg-light: #1e1e1e;
-    --bg-card: #2d2d2d;
-    --shadow: rgba(0,0,0,0.5);
-    --nav-bg: #121212;
+    
+    /* Màu nền cơ sở: Đen tím than (Deep Space) */
+    --bg-body: #030014; 
+    
+    --bg-light: rgba(255, 255, 255, 0.05); /* Các section phụ sẽ trong suốt mờ */
+    --bg-card: rgba(30, 30, 40, 0.6); /* Card bán trong suốt */
+    --shadow: rgba(0,0,0,0.8);
+    --nav-bg: rgba(3, 0, 20, 0.8); /* Menu màu tối trùng nền */
+
+    /* 2. TẠO HÌNH NỀN VŨ TRỤ NEON (QUAN TRỌNG) */
+    background-color: var(--bg-body);
+    
+    background-image: 
+        /* Lớp 1: Tinh vân Tím hồng rực rỡ ở góc trên trái */
+        radial-gradient(circle at 10% 20%, rgba(180, 0, 255, 0.35) 0%, transparent 40%),
+        
+        /* Lớp 2: Tinh vân Xanh Cyan sâu thẳm ở góc dưới phải */
+        radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.25) 0%, transparent 40%),
+        
+        /* Lớp 3: Các đốm sao nhỏ li ti (hiệu ứng ồn/noise nhẹ) */
+        radial-gradient(white 1px, transparent 1px);
+        
+    /* Kích thước của lớp sao (Lớp 3) */
+    background-size: 100% 100%, 100% 100%, 60px 60px;
+    
+    /* Cố định nền để khi cuộn trang tạo cảm giác chiều sâu 3D */
+    background-attachment: fixed;
+}
+
+/* Tinh chỉnh lại Card để hợp với nền vũ trụ (Hiệu ứng kính mờ tối) */
+body.dark-mode .project-card, 
+body.dark-mode .cert-card, 
+body.dark-mode .info-card,
+body.dark-mode .stat-box {
+    background: rgba(20, 20, 30, 0.5); /* Nền tối mờ */
+    border: 1px solid rgba(180, 0, 255, 0.2); /* Viền tím nhẹ */
+    backdrop-filter: blur(10px); /* Làm mờ hậu cảnh sau card */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Khi di chuột vào Card thì viền sáng lên màu Neon */
+body.dark-mode .project-card:hover, 
+body.dark-mode .cert-card:hover {
+    border-color: #00ffff; /* Viền đổi sang Cyan */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Phát sáng */
 }
 
 /* --- 2. RESET & BASIC --- */
@@ -431,4 +531,11 @@ footer { background: var(--secondary-color); color: var(--bg-body); text-align: 
     .music-widget { bottom: 20px; left: 20px; }
     .disk-btn { width: 45px; height: 45px; }
     .disk-center { width: 18px; height: 18px; }
+}
+/* Làm cho các thẻ Card nổi bật hơn trên nền mới */
+body.dark-mode .project-card, 
+body.dark-mode .cert-card, 
+body.dark-mode .info-card {
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Viền mỏng mờ */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Bóng đổ đậm hơn */
 }
