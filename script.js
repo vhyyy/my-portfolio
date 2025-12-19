@@ -17,7 +17,7 @@ const translations = {
         nav_about: "Giới thiệu", 
         nav_exp: "Kinh nghiệm", 
         nav_blog: "Bài viết", 
-        nav_cert: "Chứng chỉ", // <--- ĐÃ THÊM MỚI
+        nav_cert: "Chứng chỉ",
         nav_contact: "Liên hệ",
 
         // HERO & ABOUT
@@ -66,7 +66,7 @@ const translations = {
         nav_about: "About", 
         nav_exp: "Experience", 
         nav_blog: "Blog", 
-        nav_cert: "Certificates", // <--- ĐÃ THÊM MỚI
+        nav_cert: "Certificates",
         nav_contact: "Contact",
 
         // HERO & ABOUT
@@ -324,26 +324,23 @@ if (!document.getElementById('dynamic-styles')) {
     styleSheet.innerText = `@keyframes fadeIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }`;
     document.head.appendChild(styleSheet);
 }
+
 // --- MUSIC PLAYER CONTROL ---
 const musicBtn = document.getElementById('musicToggle');
 const bgMusic = document.getElementById('bgMusic');
 let isPlaying = false;
 
 if (musicBtn && bgMusic) {
-    // Đặt âm lượng mặc định nhỏ (30%) để không làm phiền người dùng
     bgMusic.volume = 0.3;
 
     musicBtn.addEventListener('click', () => {
         if (isPlaying) {
             bgMusic.pause();
-            musicBtn.classList.remove('playing'); // Dừng xoay & tắt RGB
-            // Đổi icon về Play
+            musicBtn.classList.remove('playing');
             musicBtn.querySelector('i').className = 'fas fa-music';
         } else {
             bgMusic.play().then(() => {
-                // Nhạc bắt đầu chạy mới thêm hiệu ứng
-                musicBtn.classList.add('playing'); // Bắt đầu xoay & bật RGB
-                // Đổi icon thành Pause
+                musicBtn.classList.add('playing');
                 musicBtn.querySelector('i').className = 'fas fa-pause';
             }).catch(error => {
                 console.log("Trình duyệt chặn tự phát nhạc: ", error);
@@ -352,3 +349,61 @@ if (musicBtn && bgMusic) {
         isPlaying = !isPlaying;
     });
 }
+
+// --- 5. SPA BLOG OVERLAY LOGIC (NEW) ---
+const blogOverlay = document.getElementById('blog-overlay');
+
+// Hàm MỞ trang chi tiết (được gọi từ onclick trong HTML)
+window.openBlogDetail = function(id) {
+    // Kiểm tra xem biến blogDatabase có tồn tại không
+    if (typeof blogDatabase === 'undefined') {
+        console.error("LỖI: Không tìm thấy dữ liệu bài viết! Hãy kiểm tra xem file blog-data.js đã được nhúng chưa.");
+        return;
+    }
+
+    const post = blogDatabase[id];
+    if (!post) return; // Không tìm thấy bài viết với ID này
+
+    // 1. Điền dữ liệu text
+    const titleEl = document.getElementById('detailTitle');
+    const catEl = document.getElementById('detailCat');
+    const contentEl = document.getElementById('detailContent');
+    
+    if(titleEl) titleEl.innerText = post.title;
+    if(catEl) catEl.innerText = post.category;
+    if(contentEl) contentEl.innerHTML = post.content;
+
+    // 2. Xử lý khung Code
+    const codeWin = document.getElementById('codeWindow');
+    const codeTitle = document.getElementById('codeTitle');
+    const codeContent = document.getElementById('detailCode');
+
+    if (post.code && codeWin && codeContent) {
+        codeWin.style.display = 'block';
+        if(codeTitle) codeTitle.innerText = post.codeTitle || 'terminal';
+        
+        // Highlight Code đơn giản
+        let rawCode = post.code.trim();
+        // Chống lỗi HTML tag
+        rawCode = rawCode.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        
+        // Tô màu comment (// hoặc #)
+        rawCode = rawCode.replace(/(\/\/.*$|#.*$)/gm, '<span class="comment">$1</span>');
+        // Tô màu chuỗi ("...")
+        rawCode = rawCode.replace(/(".*?")/g, '<span class="string">$1</span>');
+        
+        codeContent.innerHTML = rawCode;
+    } else if (codeWin) {
+        codeWin.style.display = 'none'; // Ẩn khung code nếu bài viết không có code
+    }
+
+    // 3. Hiển thị Overlay & Khóa cuộn trang
+    if(blogOverlay) blogOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+// Hàm ĐÓNG trang chi tiết
+window.closeBlogDetail = function() {
+    if(blogOverlay) blogOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Mở lại cuộn trang
+};

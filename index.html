@@ -160,155 +160,155 @@
 
             <div class="projects-grid">
                 
-                <div class="project-card" data-category="network">
+                <div class="project-card" data-category="network" onclick="openBlogDetail('osi')">
                     <div class="project-info">
                         <span class="category">Network</span>
                         <h3 data-lang="b_osi_t">Mô hình OSI 7 Tầng</h3>
-                        <p data-lang="b_osi_d">Hiểu về cách dữ liệu di chuyển từ tầng Vật lý (Physical) đến Ứng dụng (Application) một cách dễ hiểu nhất.</p>
-                        <div class="code-snippet"><pre>1. Physical (Dây cáp)... 7. Application (HTTP)</pre></div>
+                        <p data-lang="b_osi_d">Hiểu về cách dữ liệu di chuyển từ tầng Vật lý (Physical) đến Ứng dụng (Application).</p>
+                        <div class="code-snippet"><pre>1. Physical... -> 7. Application</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="network">
+                <div class="project-card" data-category="network" onclick="openBlogDetail('dns')">
                     <div class="project-info">
                         <span class="category">Network</span>
-                        <h3 data-lang="b_dns_t">DNS: Danh bạ của Internet</h3>
-                        <p data-lang="b_dns_d">Tại sao bạn gõ google.com chứ không phải 142.250.1.1? Cơ chế phân giải tên miền hoạt động ra sao?</p>
-                        <div class="code-snippet"><pre>User -> google.com -> 142.x.x.x -> Connect</pre></div>
+                        <h3 data-lang="b_dns_t">DNS: Danh bạ Internet</h3>
+                        <p data-lang="b_dns_d">Cơ chế phân giải tên miền hoạt động ra sao?</p>
+                        <div class="code-snippet"><pre>User -> DNS -> IP Address</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="network">
+                <div class="project-card" data-category="network" onclick="openBlogDetail('http')">
                     <div class="project-info">
                         <span class="category">Network</span>
                         <h3 data-lang="b_http_t">HTTP vs HTTPS & SSL</h3>
-                        <p data-lang="b_http_d">Sự khác biệt về bảo mật và quy trình "bắt tay" (Handshake) để mã hóa dữ liệu truyền tải.</p>
-                        <div class="code-snippet"><pre>Client Hello -> Server Hello -> Key Exchange</pre></div>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-category="network">
-                    <div class="project-info">
-                        <span class="category">Network</span>
-                        <h3 data-lang="b_socket_t">Socket TCP Client-Server</h3>
-                        <p data-lang="b_socket_d">Mô hình giao tiếp tin cậy qua mạng. Nền tảng của các ứng dụng Chat.</p>
-                        <div class="code-snippet"><pre>ServerSocket sv = new ServerSocket(8888);</pre></div>
+                        <p data-lang="b_http_d">Sự khác biệt bảo mật và quy trình Handshake.</p>
+                        <div class="code-snippet"><pre>Client Hello -> Server Hello</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="fun">
+                <div class="project-card" data-category="network" onclick="openBlogDetail('socket')">
+                    <div class="project-info">
+                        <span class="category">Network</span>
+                        <h3 data-lang="b_socket_t">Socket TCP</h3>
+                        <p data-lang="b_socket_d">Mô hình giao tiếp tin cậy Client-Server.</p>
+                        <div class="code-snippet"><pre>new ServerSocket(8888);</pre></div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="fun" onclick="openBlogDetail('works')">
                     <div class="project-info">
                         <span class="category" style="background: #e91e63;">Funny</span>
                         <h3>"It works on my machine!"</h3>
-                        <p data-lang="b_works_d">Câu nói kinh điển của mọi Dev: Tại sao code chạy ngon lành trên máy tôi nhưng sang máy sếp lại lỗi?</p>
-                        <div class="code-snippet"><pre>if (myMachine) { return true; } else { crash(); }</pre></div>
+                        <p data-lang="b_works_d">Tại sao code chạy máy tôi nhưng máy sếp lỗi?</p>
+                        <div class="code-snippet"><pre>return true;</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="fun">
+                <div class="project-card" data-category="fun" onclick="openBlogDetail('3am')">
                     <div class="project-info">
                         <span class="category" style="background: #e91e63;">Funny</span>
-                        <h3 data-lang="b_3am_t">Code lúc 3h sáng vs 9h sáng</h3>
-                        <p data-lang="b_3am_d">Sự khác biệt giữa việc code trong trạng thái "thăng hoa" ban đêm và cơn đau đầu khi đọc lại vào sáng hôm sau.</p>
-                        <div class="code-snippet"><pre>// God only knows what this does. ToDo: Fix later</pre></div>
+                        <h3 data-lang="b_3am_t">Code 3h sáng</h3>
+                        <p data-lang="b_3am_d">Code lúc đêm và nỗi đau sáng hôm sau.</p>
+                        <div class="code-snippet"><pre>// ToDo: Fix later</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="java">
+                <div class="project-card" data-category="java" onclick="openBlogDetail('class')">
                     <div class="project-info">
                         <span class="category">Java</span>
                         <h3 data-lang="b_cls_t">Class và Object</h3>
-                        <p data-lang="b_cls_d">Class là khuôn mẫu, Object là thực thể cụ thể. Đây là nền tảng của OOP.</p>
-                        <div class="code-snippet"><pre>class Car { ... } Car myCar = new Car();</pre></div>
+                        <p data-lang="b_cls_d">Nền tảng của OOP.</p>
+                        <div class="code-snippet"><pre>new Car();</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="java">
+                <div class="project-card" data-category="java" onclick="openBlogDetail('array')">
                     <div class="project-info">
                         <span class="category">Java</span>
                         <h3 data-lang="b_arr_t">ArrayList vs Array</h3>
-                        <p data-lang="b_arr_d">ArrayList linh hoạt hơn mảng thường vì có thể thay đổi kích thước động.</p>
-                        <div class="code-snippet"><pre>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();</pre></div>
+                        <p data-lang="b_arr_d">Sự linh hoạt về kích thước.</p>
+                        <div class="code-snippet"><pre>list.add("Item");</pre></div>
                     </div>
                 </div>
 
-                 <div class="project-card" data-category="java">
+                <div class="project-card" data-category="java" onclick="openBlogDetail('inh')">
                     <div class="project-info">
                         <span class="category">Java</span>
                         <h3 data-lang="b_inh_t">Kế thừa (Inheritance)</h3>
-                        <p data-lang="b_inh_d">Dùng từ khóa `extends` để lớp con kế thừa thuộc tính của lớp cha.</p>
-                        <div class="code-snippet"><pre>class Dog extends Animal { ... }</pre></div>
+                        <p data-lang="b_inh_d">Từ khóa extends trong Java.</p>
+                        <div class="code-snippet"><pre>extends Animal</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="java">
+                <div class="project-card" data-category="java" onclick="openBlogDetail('interface')">
                     <div class="project-info">
                         <span class="category">Java</span>
-                        <h3 data-lang="b_int_t">Interface là gì?</h3>
-                        <p data-lang="b_int_d">Interface chứa các hàm trừu tượng, giúp đa kế thừa trong Java.</p>
-                        <div class="code-snippet"><pre>interface Animal { void sound(); }</pre></div>
+                        <h3 data-lang="b_int_t">Interface</h3>
+                        <p data-lang="b_int_d">Đa kế thừa và tính trừu tượng.</p>
+                        <div class="code-snippet"><pre>implements Runnable</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="js">
+                <div class="project-card" data-category="js" onclick="openBlogDetail('var')">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
                         <h3 data-lang="b_var_t">Let vs Const vs Var</h3>
-                        <p data-lang="b_var_d">Nên dùng `const` mặc định, `let` khi cần đổi giá trị. Tránh dùng `var`.</p>
-                        <div class="code-snippet"><pre>const PI = 3.14; let age = 20;</pre></div>
+                        <p data-lang="b_var_d">Cách khai báo biến chuẩn ES6.</p>
+                        <div class="code-snippet"><pre>const PI = 3.14;</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="js">
+                <div class="project-card" data-category="js" onclick="openBlogDetail('arrow')">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
                         <h3 data-lang="b_arrw_t">Arrow Function</h3>
-                        <p data-lang="b_arrw_d">Cách viết hàm ngắn gọn hơn trong ES6.</p>
-                        <div class="code-snippet"><pre>const add = a => a + 10;</pre></div>
+                        <p data-lang="b_arrw_d">Hàm mũi tên ngắn gọn.</p>
+                        <div class="code-snippet"><pre>() => {}</pre></div>
                     </div>
                 </div>
 
-                 <div class="project-card" data-category="js">
+                <div class="project-card" data-category="js" onclick="openBlogDetail('template')">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
                         <h3 data-lang="b_lit_t">Template Literals</h3>
-                        <p data-lang="b_lit_d">Nối chuỗi siêu dễ với dấu backtick (`).</p>
-                        <div class="code-snippet"><pre>console.log(`Hi ${name}!`);</pre></div>
+                        <p data-lang="b_lit_d">Nối chuỗi bằng backtick.</p>
+                        <div class="code-snippet"><pre>`Hi ${name}`</pre></div>
                     </div>
                 </div>
 
-                 <div class="project-card" data-category="js">
+                <div class="project-card" data-category="js" onclick="openBlogDetail('dom')">
                     <div class="project-info">
                         <span class="category">JavaScript</span>
                         <h3 data-lang="b_dom_t">DOM Manipulation</h3>
-                        <p data-lang="b_dom_d">Thay đổi nội dung HTML bằng JS.</p>
-                        <div class="code-snippet"><pre>document.getElementById("demo").innerHTML = "Hi";</pre></div>
+                        <p data-lang="b_dom_d">Thao tác HTML bằng JS.</p>
+                        <div class="code-snippet"><pre>document.getElementById</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="python">
+                <div class="project-card" data-category="python" onclick="openBlogDetail('list')">
                     <div class="project-info">
                         <span class="category">Python</span>
                         <h3 data-lang="b_list_t">List Comprehension</h3>
-                        <p data-lang="b_list_d">Tạo list mới từ list cũ chỉ trong 1 dòng code.</p>
-                        <div class="code-snippet"><pre>squares = [x**2 for x in nums]</pre></div>
+                        <p data-lang="b_list_d">Xử lý list trong 1 dòng.</p>
+                        <div class="code-snippet"><pre>[x**2 for x in list]</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="python">
+                <div class="project-card" data-category="python" onclick="openBlogDetail('dict')">
                     <div class="project-info">
                         <span class="category">Python</span>
-                        <h3 data-lang="b_dict_t">Dictionary cơ bản</h3>
-                        <p data-lang="b_dict_d">Lưu trữ dữ liệu dạng Key-Value cực mạnh mẽ.</p>
-                        <div class="code-snippet"><pre>info = {"name": "Huy", "age": 21}</pre></div>
+                        <h3 data-lang="b_dict_t">Dictionary</h3>
+                        <p data-lang="b_dict_d">Cấu trúc Key-Value.</p>
+                        <div class="code-snippet"><pre>{"key": "value"}</pre></div>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="c">
+                <div class="project-card" data-category="c" onclick="openBlogDetail('pointer')">
                     <div class="project-info">
                         <span class="category">C Language</span>
                         <h3 data-lang="b_ptr_t">Con trỏ (Pointer)</h3>
-                        <p data-lang="b_ptr_d">Biến lưu địa chỉ bộ nhớ của biến khác.</p>
+                        <p data-lang="b_ptr_d">Biến lưu địa chỉ bộ nhớ.</p>
                         <div class="code-snippet"><pre>int *ptr = &a;</pre></div>
                     </div>
                 </div>
@@ -376,6 +376,30 @@
         </div>
     </div>
 
+    <div id="blog-overlay" class="blog-overlay">
+        <div class="blog-container">
+            <div class="back-btn" onclick="closeBlogDetail()">
+                <i class="fas fa-arrow-left"></i> Quay lại danh sách
+            </div>
+
+            <h1 id="detailTitle" class="blog-title">Title Here</h1>
+            <div class="blog-meta">Tác giả: Viết Huy | Danh mục: <span id="detailCat">Category</span></div>
+            
+            <div id="detailContent" class="blog-content">
+                </div>
+
+            <div class="code-window" id="codeWindow">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                    <span class="window-title" id="codeTitle">terminal</span>
+                </div>
+                <div class="code-area" id="detailCode">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="blog-data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
