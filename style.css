@@ -66,10 +66,6 @@ body:not(.dark-mode) h3 {
 }
 
 /* --- DARK MODE VARIABLES --- */
-/* --- SỬA LẠI ĐOẠN NÀY TRONG STYLE.CSS --- */
-
-/* --- THAY THẾ TOÀN BỘ PHẦN BODY.DARK-MODE CŨ BẰNG ĐOẠN NÀY --- */
-
 body.dark-mode {
     /* 1. Các biến màu cho Dark Mode */
     --primary-color: #00ffff; /* Đổi màu chủ đạo thành Cyan neon cho nổi */
@@ -233,14 +229,12 @@ body.dark-mode .lang-btn { border-color: var(--secondary-color); color: var(--se
 .hero-text h1 { font-size: 3rem; margin: 10px 0; color: var(--primary-color); }
 .hero-text span { color: var(--primary-color); font-weight: bold; }
 .hero-desc {
-    margin-top: 20px; /* Đẩy xuống xa hơn một chút so với tên */
-    font-size: 1.1rem; /* Cho chữ to lên xíu nhìn cho rõ */
+    margin-top: 20px;
+    font-size: 1.1rem;
     opacity: 0.9;
-    
-    /* --- CÁC DÒNG QUAN TRỌNG MỚI THÊM --- */
-    max-width: 500px; /* Giới hạn độ rộng chỉ 500px để chữ tự xuống dòng */
-    line-height: 1.8; /* Tăng khoảng cách giữa các dòng cho thoáng mắt */
-    margin-bottom: 30px; /* Tạo khoảng cách với các icon bên dưới */
+    max-width: 500px;
+    line-height: 1.8;
+    margin-bottom: 30px;
 }
 .typing-text { color: var(--primary-color); }
 .cursor { display: inline-block; width: 2px; background-color: var(--text-color); animation: blink 1s infinite; }
@@ -252,16 +246,11 @@ body.dark-mode .lang-btn { border-color: var(--secondary-color); color: var(--se
     height: auto;
     max-width: 400px; 
     object-fit: cover; 
-    
-    /* Bo góc hình chữ nhật */
     border-radius: 30px; 
-    
-    /* Hiệu ứng Neon Cyan */
     box-shadow: 
         0 0 10px #00ffff,
         0 0 30px rgba(0, 255, 255, 0.8),
         0 0 70px rgba(0, 255, 255, 0.5);
-    
     border: 2px solid rgba(0, 255, 255, 0.6);
     transition: all 0.4s ease-in-out;
 }
@@ -601,3 +590,41 @@ body.dark-mode .info-card {
 .window-title { color: #999; font-family: monospace; font-size: 0.8rem; margin-left: 10px; }
 .code-area { padding: 20px; color: #d4d4d4; font-family: monospace; overflow-x: auto; white-space: pre; }
 .comment { color: #6a9955; } .string { color: #ce9178; }
+
+/* --- BUTTON GROUP (Download CV) --- */
+.cta-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.cta-group .btn {
+    margin-top: 0; 
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+body.dark-mode .btn-outline {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+body.dark-mode .btn-outline:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 20px var(--primary-color);
+}

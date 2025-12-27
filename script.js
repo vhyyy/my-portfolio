@@ -24,6 +24,10 @@ const translations = {
         hero_welcome: "Chào mừng đến với Blog của", hero_iam: "Tôi là một",
         hero_desc: "Đam mê khám phá Lập trình mạng, Java, Python và JavaScript. Chuyên xây dựng các hệ thống ổn định và bảo mật.",
         hero_btn: "Đọc bài viết mới nhất",
+        
+        // --- CẬP NHẬT: Thêm dịch cho nút CV ---
+        hero_cv: "Tải CV", 
+        
         sec_about: "Về Tôi",
         about_desc: "Sinh viên/Kỹ sư Hệ thống & Mạng máy tính định hướng DevOps và An ninh mạng. Có kiến thức nền tảng về quản trị hệ thống, mạng máy tính, triển khai dịch vụ và bảo mật hạ tầng CNTT.",
         stat_project: "Dự Án", stat_completed: "Hoàn Thành",
@@ -73,6 +77,10 @@ const translations = {
         hero_welcome: "Welcome to the Blog of", hero_iam: "I am a",
         hero_desc: "Passionate about Network Programming, Java, Python, and JavaScript. Specializing in building stable and secure systems.",
         hero_btn: "Read Latest Posts",
+        
+        // --- CẬP NHẬT: Thêm dịch cho nút CV ---
+        hero_cv: "Download CV",
+
         sec_about: "About Me",
         about_desc: "Student/System & Network Engineer aiming for DevOps and Cyber Security. Solid background in system administration, networking, and IT infrastructure security.",
         stat_project: "Projects", stat_completed: "Completed",
